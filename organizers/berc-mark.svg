@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 100">
+  <title>نشان BERC</title>
+  <path fill="#06245b" d="M62 5a45 45 0 0 0 0 90Z"/>
+  <text x="33" y="67" fill="white" font-family="Arial,sans-serif" font-size="49" font-weight="500">B</text>
+  <text x="75" y="67" fill="#06245b" font-family="Arial,sans-serif" font-size="49" font-weight="600" letter-spacing="10">ERC</text>
+  <text x="77" y="82" fill="#06245b" font-family="Arial,sans-serif" font-size="6.5" font-weight="700">EVENT THE BEST WAY TO</text>
+  <text x="77" y="90" fill="#06245b" font-family="Arial,sans-serif" font-size="6.5" font-weight="700">INFLUENCE</text>
+</svg>

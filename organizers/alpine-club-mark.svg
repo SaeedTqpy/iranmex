@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 110">
+  <title>نشان انجمن کوهنوردان ایران</title>
+  <defs><mask id="cutout"><rect width="120" height="110" fill="white"/><circle cx="60" cy="68" r="32" fill="black"/></mask></defs>
+  <path fill="#394990" mask="url(#cutout)" d="M55 8Q60 0 65 8L113 91Q118 100 108 100H12Q2 100 7 91Z"/>
+</svg>
