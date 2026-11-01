@@ -1,5 +1,5 @@
-:HL["/iranmex/_next/static/chunks/201qq82vdtc9y.css","style"]
+:HL["/iranmex/_next/static/chunks/1q7yz97gesb1t.css","style"]
 :HL["/iranmex/_next/static/chunks/1z7cgppj68aax.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":{"n":"slug","t":"d","k":"exhibitors","s":["exhibition","news","registration"]},"h":96,"c":"$Q2"}]]
-0:{"b":"dZnzQwgriL2v1PZx3iSl4","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"E9goQwfBn0bv6CS6Fua-j","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
