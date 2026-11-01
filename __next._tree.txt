@@ -1,7 +1,7 @@
-:HL["/iranmex/_next/static/chunks/3z2csc6hzyreo.css","style"]
+:HL["/iranmex/_next/static/chunks/4129wseg8ro5n.css","style"]
 :HL["/iranmex/_next/static/chunks/3esm_ztjay91h.css","style"]
-:HL["/iranmex/organizers/berc-mark.svg","image"]
-:HL["/iranmex/organizers/alpine-club-mark.svg","image"]
+:HL["/iranmex/organizers/berc.png","image"]
+:HL["/iranmex/organizers/alpine-club.png","image"]
 :HL["/iranmex/iranmex-logo.png","image"]
 1:[["children",{"s":"__PAGE__","h":160}]]
-0:{"b":"RtN0BZosVi9E7uvdSubvY","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"CCoRbUsKy6jonzicbN_cq","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
