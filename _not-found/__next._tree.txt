@@ -1,4 +1,4 @@
-:HL["/iranmex/_next/static/chunks/290ol0a-tarsr.css","style"]
+:HL["/iranmex/_next/static/chunks/3quq_8lghrump.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"gcHzQS4YWX42xkU06Z6di","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"01cIKaUWM8etUF6nx2CVo","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
