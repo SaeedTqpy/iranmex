@@ -1,7 +1,7 @@
-:HL["/iranmex/_next/static/chunks/0iipkz-wgeuo0.css","style"]
+:HL["/iranmex/_next/static/chunks/3z2csc6hzyreo.css","style"]
 :HL["/iranmex/_next/static/chunks/2df055qx38oou.css","style"]
 :HL["/iranmex/companies/company-010.png","image"]
 3:[["children",{"s":"__PAGE__","h":160}]]
 2:[["children",{"s":{"n":"company","t":"d","k":"atis-club","s":[]},"h":96,"c":"$Q3"}]]
 1:[["children",{"s":"exhibition","h":96,"c":"$Q2"}]]
-0:{"b":"GLFvpDkdxTV_I1Y5-4M7V","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"RtN0BZosVi9E7uvdSubvY","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
