@@ -1,7 +1,7 @@
-:HL["/iranmex/_next/static/chunks/2-kd4a_1yxq8z.css","style"]
+:HL["/iranmex/_next/static/chunks/0lpvmbyfvl9w-.css","style"]
 :HL["/iranmex/_next/static/chunks/2df055qx38oou.css","style"]
 :HL["/iranmex/companies/company-006.png","image"]
 3:[["children",{"s":"__PAGE__","h":160}]]
 2:[["children",{"s":{"n":"company","t":"d","k":"pay-kooh","s":[]},"h":96,"c":"$Q3"}]]
 1:[["children",{"s":"exhibition","h":96,"c":"$Q2"}]]
-0:{"b":"gQfMRP64oSmm4S__D8uvg","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"KV3MU5VdRDb7XlXezjx7T","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
