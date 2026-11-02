@@ -1,0 +1,6 @@
+:HL["/iranmex/_next/static/chunks/2nee4q_95f61m.css","style"]
+:HL["/iranmex/_next/static/chunks/3f-64q73o0dne.css","style"]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":"news","h":96,"c":"$Q3"}]]
+1:[["children",{"s":"en","h":96,"c":"$Q2"}]]
+0:{"b":"9QLOPNFkcdujRVz4bcT3J","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
