@@ -1,0 +1,29 @@
+# Include this zone in nginx's http context (not inside a server block).
+limit_req_zone $binary_remote_addr zone=iranmex_admin_login:10m rate=10r/m;
+
+# Replace the domain and certificate paths before use. The upstream application
+# must listen only on 127.0.0.1:3000; set ADMIN_TRUST_PROXY=1 and APP_ORIGIN.
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name example.com;
+    ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+
+    location = /api/admin/login {
+        limit_req zone=iranmex_admin_login burst=5 nodelay;
+        limit_req_status 429;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_pass http://127.0.0.1:3000;
+    }
+    location / {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_pass http://127.0.0.1:3000;
+    }
+}

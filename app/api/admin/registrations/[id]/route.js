@@ -1,0 +1,4 @@
+import {checkAdminOrigin,readAdminSession,readJson,response} from '../../../../../lib/server/admin-request';
+import {updateBoothStatus} from '../../../../../lib/server/registrations-admin.mjs';
+export const runtime='nodejs';
+export async function PATCH(request,{params}){if(!checkAdminOrigin(request))return response({message:'درخواست مجاز نیست.'},403);const session=await readAdminSession();if(!session)return response({message:'لطفاً دوباره وارد پنل شوید.'},401);const input=await readJson(request,1024);const {id}=await params;if(!input||typeof input.status!=='string')return response({message:'وضعیت معتبر نیست.'},400);try{return updateBoothStatus(id,input.status,session.username)?response({ok:true}):response({message:'درخواست یا وضعیت یافت نشد.'},404);}catch{return response({message:'تغییر وضعیت انجام نشد.'},503);}}

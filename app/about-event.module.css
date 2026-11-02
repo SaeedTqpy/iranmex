@@ -1,0 +1,103 @@
+.page{background:#071e29;color:#f0f7f4}
+.page h2{font-size:clamp(1.65rem,2.6vw,2.6rem);line-height:1.6;letter-spacing:0;margin:0 0 24px}
+.page p{line-height:2.2;color:#cbded9}
+.introduction,.organizers,.principles,.councils,.registration{padding:clamp(60px,7vw,100px) 8%}
+.introduction{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(32px,6vw,90px);align-items:center}
+.introduction p{max-width:780px;font-size:1rem;margin:0 0 16px}
+.logo{width:100%;height:auto;max-width:450px;justify-self:center}
+.facts{margin:30px 0 0;border-top:1px solid #739e9b55}
+.facts>div{display:grid;grid-template-columns:145px minmax(0,1fr);gap:18px;padding:18px 0;border-bottom:1px solid #739e9b55;align-items:start}
+.facts dt{display:flex;align-items:center;gap:9px;font-size:.9rem;color:#bdd2cd;line-height:1.8}
+.facts svg{flex:none;color:var(--lime);margin-top:3px}
+.facts dd{margin:0;font-size:1rem;line-height:1.9}
+.organizers{background:#0b3039}
+.organizers>p{max-width:980px;margin:0}
+.organizerList{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:36px 0 0}
+.organizerList>div{border-top:2px solid #699c93;padding-top:20px}
+.organizerList dt{color:#b7cdc8;font-size:.85rem;margin-bottom:12px;line-height:1.8}
+.organizerList dd{font-size:1.15rem;line-height:1.9;font-weight:900;margin:0}
+.principleGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.principleGrid article{padding:30px;background:#10343e;border:1px solid #7bab9e33;border-radius:16px}
+.principleGrid h3{color:var(--lime);font-size:1.3rem;margin:0 0 16px;line-height:1.7}
+.principleGrid p{margin:0}
+.councils{background:#0b2b35}
+.council+.council{margin-top:64px}
+.members{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding:0;margin:0;list-style:none}
+.members li{padding:26px 22px;border:1px solid #7bab9e44;border-radius:12px;background:#10343e}
+.members h3{font-size:1.15rem;line-height:1.8;margin:0 0 10px;font-weight:900}
+.members p{font-size:.9rem;line-height:1.9;margin:0;color:#bfdbd0}
+.members .memberWithPhoto{display:flex;align-items:center;gap:16px}
+.memberPhoto{display:block;width:80px;height:96px;flex:none;object-fit:cover;object-position:35% 30%;border-radius:8px}
+.council .pending{font-size:.85rem;line-height:2;margin:20px 0 0;color:#b2c8c1}
+.registration{display:flex;align-items:center;justify-content:space-between;gap:35px;background:#103a42}
+.registration h2{margin-bottom:12px}
+.registration p{margin:0}
+.registrationAction{flex:none;text-align:center}
+.registrationLink{display:inline-flex;align-items:center;justify-content:center;gap:16px;padding:15px 24px;min-height:52px;background:var(--lime);color:#102630;border:1px solid var(--lime);border-radius:9px;font-size:1rem;font-weight:900;transition:background-color 180ms ease}
+.registrationAction p{font-size:.8rem;margin-top:12px}
+@media(hover:hover) and (pointer:fine){.registrationLink:hover{background:#c6ff55}}
+@media(max-width:1050px){.members{grid-template-columns:repeat(2,minmax(0,1fr))}.introduction{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}.principleGrid article{padding:22px}}
+@media(max-width:800px){.introduction,.organizers,.principles,.councils,.registration{padding:60px 6%}.introduction{grid-template-columns:1fr}.logo{max-width:320px}.organizerList,.principleGrid{grid-template-columns:1fr}.organizerList{gap:26px}.registration{flex-direction:column;align-items:stretch}.registrationAction{text-align:right}.principleGrid article{padding:26px}}
+@media(max-width:480px){.facts>div{grid-template-columns:1fr;gap:6px}.facts dd{padding-inline-start:29px}.members{grid-template-columns:1fr}.registrationLink{width:100%}.registrationAction p{text-align:center}.council+.council{margin-top:48px}}
+
+/* Bring the event story into the site's petrol and chartreuse visual language. */
+.introduction{background:radial-gradient(ellipse at 15% 50%,#1b4a49 0%,transparent 50%),#071e24}
+.facts{border-color:#a5c8b94a}.facts>div{border-color:#a5c8b94a}.facts dt{color:#c8ded5}
+.organizers{background:#123a39}.organizerList{gap:0;border-block:1px solid #a5c8b955}.organizerList>div{border-top:0;border-left:1px solid #a5c8b955;padding:26px}.organizerList>div:first-child{padding-right:0}.organizerList>div:last-child{border-left:0}.organizerList dt{color:#b9d4c8}.organizerList dd{color:#f3f8ed}
+.principles{background:#07191c}.principleGrid{gap:14px}.principleGrid article{min-height:230px;padding:30px;background:#123035;border-color:#83ae9a40;display:flex;flex-direction:column;justify-content:flex-end}.principleGrid article:nth-child(2){background:#193c38}.principleGrid article:nth-child(3){background:#294432}.principleGrid h3{color:#d0ff70}
+.councils{background:#102e30}.council+.council{margin-top:72px}.members{gap:1px;background:#8bb3a64a;border:1px solid #8bb3a64a;border-radius:16px;overflow:hidden}.members li{border:0;border-radius:0;background:#123639;padding:28px}.members h3{color:#f2f8ed}.members p{color:#bcd4c9}.council .pending{color:#c1d5cc}
+.registration{background:#a9f11d;color:#102c29}.registration p{color:#264c3b}.registrationLink{background:#102c29;border-color:#102c29;color:#f3f8ed}.registrationAction p{color:#315839}
+@media(hover:hover) and (pointer:fine){.registrationLink:hover{background:#20493a}}
+@media(max-width:800px){.organizerList>div,.organizerList>div:first-child{padding:20px 0;border-left:0;border-bottom:1px solid #a5c8b955}.organizerList>div:last-child{border-bottom:0}.organizerList{gap:0}.principleGrid article{min-height:0}}
+
+/* A continuous dark field ties the about page to the homepage. */
+.page{background:radial-gradient(ellipse 85% 18% at 15% 15%,#16434b35,transparent 72%),radial-gradient(ellipse 85% 18% at 85% 48%,#17475030,transparent 72%),radial-gradient(ellipse 80% 16% at 15% 78%,#17475025,transparent 72%),linear-gradient(180deg,#06191e 0%,#030c0f 45%,#071c20 76%,#030c0f 100%);color:#edf5f5}
+.introduction,.organizers,.principles,.councils,.registration{background:transparent;color:inherit}
+.page p{color:#c8dcda}
+.page h2{color:#f0f7f5}
+.facts,.facts>div,.organizerList,.organizerList>div{border-color:#71999d40}
+.facts dt,.organizerList dt,.members p,.council .pending{color:#b9d0ce}
+.facts dd,.organizerList dd,.members h3{color:#edf5f5}
+.principleGrid article,.principleGrid article:nth-child(n),.members li{background:linear-gradient(145deg,#102d33,#0b242a);border-color:#71999d40}
+.principleGrid h3{color:var(--lime)}
+.members{background:#71999d40;border-color:#71999d40}
+.registration{border-top:1px solid #71999d40}
+.registration p,.registrationAction p{color:#c8dcda}
+.registrationLink{background:var(--lime);border-color:var(--lime);color:#102630}
+@media(hover:hover) and (pointer:fine){.registrationLink:hover{background:#c6ff55}}
+/* Keep the smaller details consistent across the full page. */
+.organizerList>div,.organizerList>div:first-child,.organizerList>div:last-child{border-color:#71999d40}
+.members h3,.principleGrid h3{line-height:1.8}
+.registrationAction p{color:#b9d0ce}
+/* The parent supplies one continuous field, including behind the hero. */
+.page{background:transparent}
+
+/* Organizer details share the page field and the same petrol surfaces as the homepage. */
+.page .organizers{background:transparent}
+.page .organizers h2{padding-inline-start:20px;border-inline-start:4px solid var(--lime)}
+.page .organizerList{gap:14px;border:0}
+.page .organizerList>div,.page .organizerList>div:first-child,.page .organizerList>div:last-child{padding:24px;border:1px solid #71999d40;border-radius:16px;background:linear-gradient(145deg,#102d33,#0b242a)}
+.page .organizerList dt{color:#b9d0ce}
+.page .organizerList dd{color:#edf5f5}
+@media(max-width:800px){.page .organizerList{gap:10px}.page .organizerList>div,.page .organizerList>div:first-child,.page .organizerList>div:last-child{padding:20px}.page .organizers h2{padding-inline-start:15px}}
+
+/* A soft petrol glow crosses the boundary instead of ending at it. */
+.page .organizers{position:relative;isolation:isolate}
+.page .organizers::before{content:"";position:absolute;inset:-150px 0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 85% 48% at 50% 50%,#17484a55,transparent 75%);mask-image:linear-gradient(to bottom,transparent,#000 28%,#000 72%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 28%,#000 72%,transparent)}
+
+/* Quiet surfaces complement the shared petrol and near-black background. */
+.page .organizerList>div,.page .organizerList>div:first-child,.page .organizerList>div:last-child,.page .principleGrid article,.page .principleGrid article:nth-child(n),.page .members li{background:linear-gradient(145deg,#102c30,#0b2226);border-color:#71999d30}
+.page .members{background:#71999d30;border-color:#71999d30}
+.page .facts,.page .facts>div,.page .registration{border-color:#71999d30}
+.page .organizers::before{background:radial-gradient(ellipse 85% 48% at 50% 50%,#123b3d38,transparent 75%)}
+.page .registration{border-top:0}
+@media(min-width:1051px){.council:last-child .members{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.page .registration{position:relative;isolation:isolate}
+.page .registration::before{content:"";position:absolute;inset:-100px 0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 85% 50% at 60% 50%,#1b4b504d,transparent 75%);mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 70%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 70%,transparent)}
+
+.page .principleGrid{gap:14px;align-items:stretch}
+.page .principleGrid article,.page .principleGrid article:nth-child(n){display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;min-height:280px;padding:clamp(24px,2.5vw,36px)}
+.principleIcon{width:42px;height:42px;flex:none;color:var(--lime);stroke-width:1.5;margin-bottom:28px}
+.page .principleGrid h3{margin:0 0 12px;color:#f0f7f5}
+.page .principleGrid p{margin:0;max-width:38ch}
+@media(max-width:800px){.page .principleGrid article,.page .principleGrid article:nth-child(n){min-height:0;padding:24px}.principleIcon{width:36px;height:36px;margin-bottom:18px}}

@@ -1,0 +1,83 @@
+.page{background:#071e29;color:#f0f7f4}
+.page h1{font-size:clamp(2.3rem,4.7vw,4.8rem);line-height:1.5;letter-spacing:0;margin:0 0 18px}
+.page h2{font-size:clamp(1.65rem,2.6vw,2.6rem);letter-spacing:0;line-height:1.6;margin:0 0 18px}
+.page p{line-height:2.1;color:#c5d9d4}
+.hero,.directory,.documents,.registration,.profileHero,.profileContent{padding:clamp(55px,6vw,90px) 8%}
+.hero{background:linear-gradient(110deg,#0b3039,#071e29)}
+.breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:12px;color:#bdd2cd;font-size:.85rem;line-height:1.9;margin-bottom:36px}
+.breadcrumb a:hover{text-decoration:underline}
+.hero>p{max-width:830px;font-size:1.05rem;margin:0}
+.facts{display:grid;grid-template-columns:1fr 1fr 1.6fr;gap:24px;margin:38px 0 0;padding-top:28px;border-top:1px solid #739e9b55}
+.facts dt{display:flex;gap:10px;align-items:center;font-size:.85rem;color:#bdd2cd;line-height:1.8}
+.facts dt svg{color:var(--lime);flex:none}
+.facts dd{margin:10px 0 0;font-size:1.05rem;font-weight:700;line-height:1.9}
+.sectionHeading{margin-bottom:32px}.sectionHeading p{max-width:800px;margin:0}
+.companyGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:0;padding:0;list-style:none}
+.companyCard{height:100%;display:flex;flex-direction:column;padding:16px;border:1px solid #7bab9e44;border-radius:14px;background:#10343e;transition:border-color 180ms ease,background-color 180ms ease}
+.logoPanel{display:flex;align-items:center;justify-content:center;height:160px;padding:20px;background:#fff;border-radius:8px}
+.logoPanel img{width:100%;height:100%;object-fit:contain}
+.companyName{font-size:1.1rem;font-weight:900;line-height:1.8;margin:18px 0 8px}
+.cardAction{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:.8rem;line-height:1.9;color:#bed8cf;margin-top:auto}
+.cardAction svg{flex:none;color:var(--lime)}
+.documents{background:#0b3039}.documentGrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.documentCard{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px 18px;padding:28px;border:1px solid #7bab9e44;border-radius:14px;background:#10343e}
+.documentCard>svg{color:var(--lime);margin-top:4px}.documentCard h3{font-size:1.2rem;line-height:1.8;margin:0 0 6px}.documentCard p{font-size:.9rem;margin:0}
+.documentCard .secondaryButton,.documentCard .status{grid-column:1/-1}
+.secondaryButton,.primaryButton{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:50px;padding:12px 20px;font:inherit;font-weight:900;line-height:1.8;border-radius:9px}
+.secondaryButton{color:#d0e0db;background:transparent;border:1px solid #90b2a8;margin-top:6px;text-align:center}.secondaryButton:disabled{cursor:not-allowed;color:#a8beb7;border-color:#5e8077}
+.primaryButton{background:var(--lime);border:1px solid var(--lime);color:#102630;transition:background-color 180ms ease}
+.registration{display:flex;align-items:center;justify-content:space-between;gap:32px;background:#103a42}.registration h2{margin-bottom:10px}.registration p{margin:0}.registration>div:last-child{flex:none;text-align:center}
+.page .status{font-size:.8rem;line-height:1.9;margin-top:12px;color:#b7cec6}
+.boothLink{padding:24px 8% 42px;line-height:2.2;display:flex;flex-wrap:wrap;gap:8px 18px;color:#bdd2cd}.boothLink a{display:inline-flex;align-items:center;gap:8px;color:var(--lime)}
+.profileHero{background:#0b3039}.profileIdentity{display:flex;justify-content:space-between;gap:40px;align-items:center}.profileIdentity p{margin:0}.profileLogo{display:flex;align-items:center;justify-content:center;background:#fff;border-radius:12px;padding:24px;width:240px;height:180px;flex:none}.profileLogo img{width:100%;height:100%;object-fit:contain}
+.profileHero .profileNotice{font-size:.9rem;border-top:1px solid #739e9b55;padding-top:24px;margin:28px 0 0}
+.profileContent{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:48px;align-items:start}.profileMain section+section{margin-top:45px;padding-top:35px;border-top:1px solid #739e9b55}.profileMain p{margin:0}.profileMain h2,.contactCard h2{font-size:1.5rem}
+.contactCard{background:#10343e;padding:28px;border:1px solid #7bab9e44;border-radius:14px}.contactCard p{font-size:.95rem}.contactCard ul{list-style:none;padding:0;margin:0;display:grid;gap:18px}.contactCard a{display:inline-flex;align-items:center;gap:9px;line-height:1.9;overflow-wrap:anywhere;color:var(--lime)}.contactCard .directoryBack{display:flex;margin-top:28px;padding-top:20px;border-top:1px solid #739e9b55;font-size:.9rem}
+.products{padding-inline-start:22px}.products h3{font-size:1.1rem}.products li+li{margin-top:24px}.visuallyHidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(hover:hover) and (pointer:fine){.companyCard:hover{border-color:var(--lime);background:#16444c}.primaryButton:hover{background:#c6ff55}}
+@media(max-width:1100px){.companyGrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:800px){.hero,.directory,.documents,.registration,.profileHero,.profileContent{padding:55px 6%}.companyGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.facts{grid-template-columns:1fr;gap:20px}.documentGrid,.profileContent{grid-template-columns:1fr}.registration{flex-direction:column;align-items:stretch}.registration>div:last-child{text-align:right}.profileIdentity{align-items:flex-start;flex-direction:column}.profileLogo{width:220px;height:160px}.boothLink{padding-inline:6%}}
+@media(max-width:480px){.companyGrid{gap:12px}.companyCard{padding:10px}.logoPanel{height:115px;padding:12px}.companyName{font-size:.95rem}.cardAction{font-size:.75rem;align-items:flex-start}.documentCard,.contactCard{padding:22px}.primaryButton{width:100%}.registration .status{text-align:center}}
+@media(max-width:350px){.companyGrid{grid-template-columns:1fr}.logoPanel{height:145px}}
+
+/* One continuous field for the exhibition directory. */
+.directoryPage{background:radial-gradient(ellipse 85% 20% at 15% 18%,#16434b35,transparent 72%),radial-gradient(ellipse 85% 20% at 85% 50%,#17475030,transparent 72%),radial-gradient(ellipse 80% 18% at 15% 78%,#17475025,transparent 72%),linear-gradient(180deg,#06191e 0%,#030c0f 45%,#071c20 76%,#030c0f 100%);color:#edf5f5}
+.directoryPage .hero,.directoryPage .directory,.directoryPage .documents,.directoryPage .registration{background:transparent}
+.directoryPage p{color:#c8dcda}
+.directoryPage .facts{border-color:#71999d40}
+.directoryPage .facts dt,.directoryPage .breadcrumb,.directoryPage .boothLink,.directoryPage .status{color:#b9d0ce}
+.directoryPage .companyCard,.directoryPage .documentCard{background:linear-gradient(145deg,#102d33,#0b242a);border-color:#71999d40}
+.directoryPage .companyName,.directoryPage .documentCard h3{color:#edf5f5}
+.directoryPage .cardAction{color:#bdd3d0}
+.directoryPage .secondaryButton{border-color:#71999d80;color:#c8dcda}
+.directoryPage .secondaryButton:disabled{border-color:#71999d50;color:#a9c1bf}
+.directoryPage .registration{border-top:1px solid #71999d40}
+.directoryPage .primaryButton{background:var(--lime);border-color:var(--lime);color:#102630}
+@media(hover:hover) and (pointer:fine){.directoryPage .companyCard:hover{background:#15383e;border-color:var(--lime)}.directoryPage .primaryButton:hover{background:#c6ff55}}
+
+/* Match the inner-page hero while keeping the exhibition facts readable. */
+.directoryPage{background:radial-gradient(ellipse 95% 24% at 12% 25%,#10323855,transparent 72%),radial-gradient(ellipse 85% 22% at 88% 67%,#102d3250,transparent 72%),linear-gradient(180deg,#071c20 0%,#030b0d 44%,#07191b 73%,#030c0f 100%)}
+.directoryPage .hero{position:relative;isolation:isolate;min-height:550px;padding-top:clamp(70px,8vw,120px)}
+.directoryPage .hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(270deg,#071e2af2,#0d3847d9 60%,#0d384777),url('/mountain.png') center/cover;mask-image:linear-gradient(to bottom,#000 0%,#000 45%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 45%,transparent 100%)}
+.directoryPage .companyCard,.directoryPage .documentCard{background:linear-gradient(145deg,#102c30,#0b2226);border-color:#71999d30}
+.directoryPage .facts,.directoryPage .registration{border-color:#71999d30}
+@media(hover:hover) and (pointer:fine){.directoryPage .companyCard:hover{background:#133338;border-color:#a9f11d80}}
+@media(max-width:800px){.directoryPage .hero{min-height:0;padding-top:55px}}
+.titleAccent{color:var(--lime)}
+
+/* Company profiles use the same quiet, continuous exhibition palette. */
+.profilePage{background:radial-gradient(ellipse 95% 32% at 12% 30%,#10323855,transparent 72%),radial-gradient(ellipse 85% 28% at 88% 70%,#102d3250,transparent 72%),linear-gradient(180deg,#071c20 0%,#030b0d 55%,#030c0f 100%);color:#edf5f5}
+.profilePage .profileHero{position:relative;isolation:isolate;background:transparent}
+.profilePage .profileHero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(270deg,#071e2af2,#0d3847d9 60%,#0d384777),url('/mountain.png') center/cover;mask-image:linear-gradient(to bottom,#000 0%,#000 35%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 35%,transparent 100%)}
+.profilePage .profileContent{background:transparent}
+.profilePage p{color:#c8dcda}
+.profilePage .breadcrumb{color:#b9d0ce}
+.profilePage .profileNotice,.profilePage .profileMain section+section,.profilePage .directoryBack{border-color:#71999d40}
+.profilePage .contactCard{background:linear-gradient(145deg,#102c30,#0b2226);border-color:#71999d30}
+.profilePage .contactCard a{color:var(--lime)}
+.directoryPage{background:radial-gradient(ellipse 95% 35% at 15% 35%,#1b4b504d,transparent 72%),radial-gradient(ellipse 85% 30% at 85% 68%,#19464b40,transparent 72%),linear-gradient(180deg,#0b292e 0%,#081d21 55%,#030c0f 100%)}
+
+/* Carry the petrol tone through the directory, documents and registration. */
+.directoryPage{background:radial-gradient(ellipse 95% 22% at 15% 28%,#1b4b504d,transparent 72%),radial-gradient(ellipse 90% 22% at 85% 55%,#19464b45,transparent 72%),radial-gradient(ellipse 85% 18% at 25% 79%,#1a484b3d,transparent 72%),linear-gradient(180deg,#0b292e 0%,#0a2428 35%,#081e21 72%,#030c0f 100%)}
+.directoryPage .registration{position:relative;isolation:isolate;border-top:0}
+.directoryPage .registration::before{content:"";position:absolute;inset:-100px 0 -140px;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 85% 50% at 60% 50%,#1b4b504d,transparent 75%);mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 70%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 70%,transparent)}

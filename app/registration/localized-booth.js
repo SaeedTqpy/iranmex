@@ -1,0 +1,14 @@
+import Link from 'next/link';
+import {CalendarDays,Clock,MapPin} from 'lucide-react';
+import {Header,Footer} from '../components';
+import RegistrationForm from './registration-form';
+import styles from './styles.module.css';
+
+const text={
+  en:{home:'Home',breadcrumb:'Breadcrumb',page:'Booth request',title:'Exhibition booth request',intro:'Enter your organization’s details and area of activity so the secretariat can review your request to participate in IRANMEX.',paths:'Registration type',visitor:'Visitor registration (Persian)',booth:'Booth request',info:'Exhibition information',meet:'Meet at IRANMEX',date:'Dates',dates:'9–10 December 2026',hours:'Visiting hours',time:'12:00–22:00',venue:'Venue',address:'Parsian Enghelab Hotel, Taleghani Street, Tehran',contact:'Contact the secretariat',help:'For questions about participation and booth conditions, contact the secretariat.',exhibition:'View the exhibition and companies'},
+  ar:{home:'الرئيسية',breadcrumb:'مسار الصفحة',page:'طلب جناح',title:'طلب جناح في المعرض',intro:'أدخلوا بيانات مؤسستكم ومجال نشاطها لتراجع أمانة المعرض طلب مشاركتكم في إيران مكس.',paths:'نوع التسجيل',visitor:'تسجيل الزوار (بالفارسية)',booth:'طلب جناح',info:'معلومات المعرض',meet:'نلتقي في إيران مكس',date:'التاريخ',dates:'9–10 ديسمبر 2026',hours:'ساعات الزيارة',time:'12:00–22:00',venue:'المكان',address:'فندق بارسيان إنقلاب، شارع طالقاني، طهران',contact:'التواصل مع أمانة المعرض',help:'للاستفسار عن المشاركة وشروط الأجنحة، اتصلوا بأمانة المعرض.',exhibition:'عرض المعرض والشركات'}
+};
+export default function LocalizedBooth({locale}){
+  const t=text[locale];const en=locale==='en';
+  return <div className={en?'english-home':'arabic-home'} lang={locale} dir={en?'ltr':'rtl'}><Header locale={locale}/><main className={`${styles.page} ${styles.registrationTheme} ${styles.boothPage}`}><header className={styles.intro}><nav className={styles.breadcrumb} aria-label={t.breadcrumb}><Link href={`/${locale}`}>{t.home}</Link><span aria-hidden="true">/</span><span aria-current="page">{t.page}</span></nav><h1>{t.title}</h1><p>{t.intro}</p><nav className={styles.paths} aria-label={t.paths}><Link href="/registration">{t.visitor}</Link><Link href={`/${locale}/registration/booth`} aria-current="page">{t.booth}</Link></nav></header><div className={styles.layout}><RegistrationForm type="booth" locale={locale}/><aside className={styles.aside} aria-label={t.info}><h2>{t.meet}</h2><dl><div><dt><CalendarDays size={19} aria-hidden="true"/>{t.date}</dt><dd>{t.dates}</dd></div><div><dt><Clock size={19} aria-hidden="true"/>{t.hours}</dt><dd>{t.time}</dd></div><div><dt><MapPin size={19} aria-hidden="true"/>{t.venue}</dt><dd>{t.address}</dd></div></dl><div className={styles.help}><h3>{t.contact}</h3><p>{t.help}</p><a href="tel:+989366181472" dir="ltr">+98 936 618 1472</a></div><Link href={`/${locale}/exhibition`}>{t.exhibition}</Link></aside></div></main><Footer locale={locale}/></div>;
+}

@@ -1,0 +1,10 @@
+import Link from 'next/link';
+import {notFound} from 'next/navigation';
+import {requireAdmin} from '../../../../../lib/server/admin-request';
+import {getRegistration,boothStatuses} from '../../../../../lib/server/registrations-admin.mjs';
+import {experienceOptions,referralOptions} from '../../../../../lib/registration-validation.mjs';
+import {BoothStatus} from '../../../admin-ui';
+import styles from '../../../styles.module.css';
+export const dynamic='force-dynamic';
+const labels={firstName:'نام',lastName:'نام خانوادگی',mobile:'شماره موبایل',jobTitle:'سمت یا عنوان شغلی',experience:'سابقه ورزش و فعالیت',city:'شهر محل سکونت',email:'ایمیل',referral:'نحوه آشنایی',companyName:'نام شرکت یا برند',activity:'نوع فعالیت، محصولات و خدمات',website:'وب‌سایت',requestedArea:'متراژ پیشنهادی (متر مربع)',notes:'توضیحات'};
+export default async function RegistrationDetail({params}){await requireAdmin();const {id}=await params;const row=getRegistration(id);if(!row)notFound();const type=row.type;return <><div className={styles.pageHead}><div><Link className={styles.backLink} href={`/admin/registrations?type=${type}`}>بازگشت به فهرست</Link><h1>{type==='booth'?'جزئیات درخواست غرفه':'جزئیات ثبت‌نام بازدید'}</h1><p>کد پیگیری: <bdi dir="ltr">{row.id}</bdi></p></div></div><div className={styles.detailGrid}><section className={styles.panel}><h2>اطلاعات ثبت‌شده</h2><dl className={styles.details}>{Object.entries(labels).filter(([key])=>row.fields[key]).map(([key,label])=>{const raw=row.fields[key];const value=key==='experience'?experienceOptions.find(([id])=>id===raw)?.[1]||raw:key==='referral'?referralOptions.find(([id])=>id===raw)?.[1]||raw:raw;return <div key={key}><dt>{label}</dt><dd>{['mobile','email','website'].includes(key)?<bdi dir="ltr">{value}</bdi>:value}</dd></div>;})}</dl></section>{type==='booth'&&<section className={styles.panel}><h2>پیگیری درخواست</h2><p>تغییر وضعیت به تأیید حضور، جایگزین هماهنگی با غرفه‌دار نیست.</p><BoothStatus id={row.id} current={row.status} options={boothStatuses}/></section>}</div></>;}
