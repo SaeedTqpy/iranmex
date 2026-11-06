@@ -2,6 +2,7 @@ import Link from 'next/link';
 import {ArrowUpLeft, CalendarDays, Clock, Eye, Leaf, MapPin, Target} from 'lucide-react';
 import styles from '../../about-event.module.css';
 import AboutPeople from '../../about-people';
+import AboutPartnerLogos from '../../about-partner-logos';
 
 const policyCouncil = [
   ['Dr. Gol-Mohammadi', 'Council Chair'],
@@ -58,6 +59,7 @@ export default function EnglishAboutEvent() {
           <div><dt>Strategic partner</dt><dd>Alpine Club of Iran</dd></div>
           <div><dt>Strategic partner</dt><dd>Mountaineering and Sport Climbing Federation of Iran</dd></div>
         </dl>
+        <AboutPartnerLogos locale="en"/>
       </section>
 
       <section className={styles.principles} aria-labelledby="principles-title">
