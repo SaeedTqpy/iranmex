@@ -2,4 +2,4 @@
 :HL["/iranmex/_next/static/chunks/324lm6m-ktmgz.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":{"n":"slug","t":"d","k":"events","s":["ar","en","exhibition","news","registration"]},"h":96,"c":"$Q2"}]]
-0:{"b":"i2UGZVJQrS0Nk6tOjxriz","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"Akv6pweFfIuKtNy9B3Xs4","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
