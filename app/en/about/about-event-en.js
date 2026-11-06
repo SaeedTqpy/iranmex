@@ -2,7 +2,6 @@ import Link from 'next/link';
 import {ArrowUpLeft, CalendarDays, Clock, Eye, Leaf, MapPin, Target} from 'lucide-react';
 import styles from '../../about-event.module.css';
 import AboutPeople from '../../about-people';
-import AboutPartnerLogos from '../../about-partner-logos';
 
 const policyCouncil = [
   ['Dr. Gol-Mohammadi', 'Council Chair'],
@@ -55,11 +54,10 @@ export default function EnglishAboutEvent() {
         <h2 id="organizers-title">Organizer and strategic partners</h2>
         <p>The exhibition is planned and delivered by Aso Puyesh Datis, owner of the IRANMEX brand, in official partnership with the Alpine Club of Iran and the Mountaineering and Sport Climbing Federation of Iran. It aims to provide the audience with the highest professional and operational standards.</p>
         <dl className={styles.organizerList}>
-          <div><dt>Organizer and brand owner</dt><dd>Aso Puyesh Datis</dd></div>
-          <div><dt>Strategic partner</dt><dd>Alpine Club of Iran</dd></div>
-          <div><dt>Strategic partner</dt><dd>Mountaineering and Sport Climbing Federation of Iran</dd></div>
+          <div><dt>Organizer and brand owner</dt><dd><img className={styles.organizerLogo} src="/organizers/berc.png" alt="" width="744" height="496" loading="lazy"/>Aso Puyesh Datis</dd></div>
+          <div><dt>Strategic partner</dt><dd><img className={styles.organizerLogo} src="/organizers/alpine-club.png" alt="" width="171" height="180" loading="lazy"/>Alpine Club of Iran</dd></div>
+          <div><dt>Strategic partner</dt><dd><img className={styles.organizerLogo} src="/organizers/mountaineering-federation.png" alt="" width="1371" height="1250" loading="lazy"/>Mountaineering and Sport Climbing Federation of Iran</dd></div>
         </dl>
-        <AboutPartnerLogos locale="en"/>
       </section>
 
       <section className={styles.principles} aria-labelledby="principles-title">

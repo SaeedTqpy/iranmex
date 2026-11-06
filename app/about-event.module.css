@@ -90,14 +90,9 @@
 .page .members{background:#71999d30;border-color:#71999d30}
 .page .facts,.page .facts>div,.page .registration{border-color:#71999d30}
 .page .organizers::before{background:radial-gradient(ellipse 85% 48% at 50% 50%,#123b3d38,transparent 75%)}
-.partnerGallery{margin-top:clamp(32px,4vw,56px)}
-.partnerGallery h3{margin:0 0 22px;color:#edf5f5;font-size:clamp(1.2rem,1.8vw,1.5rem);line-height:1.7}
-.partnerLogos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:0;padding:0;list-style:none}
-.partnerLogos li{display:grid;place-items:center;min-width:0;min-height:190px;padding:20px;border:1px solid #71999d40;border-radius:16px;background:#f4f5f0}
-.partnerLogos img{display:block;width:100%;height:150px;object-fit:contain}
-.partnerLogos .partnerSmallLogo{width:84px;height:64px}
-@media(max-width:800px){.partnerLogos{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.partnerLogos li{min-height:160px;padding:16px}.partnerLogos img{height:128px}}
-@media(max-width:480px){.partnerLogos li{min-height:130px;padding:12px}.partnerLogos img{height:105px}}
+.page .organizerList dd{display:flex;align-items:center;gap:18px;min-height:108px}
+.organizerLogo{display:block;width:108px;height:96px;flex:none;object-fit:contain}
+@media(max-width:480px){.page .organizerList dd{gap:14px;min-height:88px}.organizerLogo{width:84px;height:78px}}
 .page .registration{border-top:0}
 @media(min-width:1051px){.council:last-child .members{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .page .registration{position:relative;isolation:isolate}

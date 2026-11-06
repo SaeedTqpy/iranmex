@@ -2,7 +2,6 @@ import Link from 'next/link';
 import {ArrowUpLeft, CalendarDays, Clock, Eye, Leaf, MapPin, Target} from 'lucide-react';
 import styles from '../../about-event.module.css';
 import AboutPeople from '../../about-people';
-import AboutPartnerLogos from '../../about-partner-logos';
 
 const policyCouncil = [
   ['الدكتور گل‌محمدي', 'رئيس المجلس'],
@@ -55,11 +54,10 @@ export default function ArabicAboutEvent() {
         <h2 id="organizers-title">المنظم والشركاء الاستراتيجيون</h2>
         <p>تخطط شركة آسو بويش داتيس، مالكة العلامة التجارية إيران مكس، للمعرض وتنظمه بالشراكة الرسمية مع جمعية متسلقي الجبال الإيرانية واتحاد تسلق الجبال والتسلق الرياضي الإيراني، بهدف تقديم أعلى المعايير المهنية والتنفيذية للجمهور.</p>
         <dl className={styles.organizerList}>
-          <div><dt>المنظم ومالك العلامة التجارية</dt><dd>آسو بويش داتيس</dd></div>
-          <div><dt>شريك استراتيجي</dt><dd>جمعية متسلقي الجبال الإيرانية</dd></div>
-          <div><dt>شريك استراتيجي</dt><dd>اتحاد تسلق الجبال والتسلق الرياضي الإيراني</dd></div>
+          <div><dt>المنظم ومالك العلامة التجارية</dt><dd><img className={styles.organizerLogo} src="/organizers/berc.png" alt="" width="744" height="496" loading="lazy"/>آسو بويش داتيس</dd></div>
+          <div><dt>شريك استراتيجي</dt><dd><img className={styles.organizerLogo} src="/organizers/alpine-club.png" alt="" width="171" height="180" loading="lazy"/>جمعية متسلقي الجبال الإيرانية</dd></div>
+          <div><dt>شريك استراتيجي</dt><dd><img className={styles.organizerLogo} src="/organizers/mountaineering-federation.png" alt="" width="1371" height="1250" loading="lazy"/>اتحاد تسلق الجبال والتسلق الرياضي الإيراني</dd></div>
         </dl>
-        <AboutPartnerLogos locale="ar"/>
       </section>
 
       <section className={styles.principles} aria-labelledby="principles-title">
