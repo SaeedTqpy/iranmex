@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {ArrowUpLeft, CalendarDays, Clock, Eye, Leaf, MapPin, Target} from 'lucide-react';
 import styles from './about-event.module.css';
+import AboutPeople from './about-people';
 
 const policyCouncil = [
   ['دکتر گل‌محمدی', 'رئیس شورا'],
@@ -72,6 +73,8 @@ export default function AboutEvent() {
         <Council id="policy-council-title" title="شورای سیاست‌گذاری" members={policyCouncil}/>
         <Council id="executive-council-title" title="شورای اجرایی" members={executiveCouncil}/>
       </div>
+
+      <AboutPeople locale="fa"/>
 
       <section className={styles.registration} aria-labelledby="about-registration-title">
         <div><h2 id="about-registration-title">همراه ایران مِکس باشید</h2><p>برای بازدید از نمایشگاه، اطلاعات خود را در فرم ثبت‌نام وارد کنید.</p></div>

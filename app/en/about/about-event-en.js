@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {ArrowUpLeft, CalendarDays, Clock, Eye, Leaf, MapPin, Target} from 'lucide-react';
 import styles from '../../about-event.module.css';
+import AboutPeople from '../../about-people';
 
 const policyCouncil = [
   ['Dr. Gol-Mohammadi', 'Council Chair'],
@@ -72,6 +73,8 @@ export default function EnglishAboutEvent() {
         <Council id="policy-council-title" title="Policy Council" members={policyCouncil}/>
         <Council id="executive-council-title" title="Executive Council" members={executiveCouncil}/>
       </div>
+
+      <AboutPeople locale="en"/>
 
       <section className={styles.registration} aria-labelledby="about-registration-title">
         <div><h2 id="about-registration-title">Join IRANMEX</h2><p>Enter your details in the registration form to visit the exhibition.</p></div>

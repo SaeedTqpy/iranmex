@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {ArrowUpLeft, CalendarDays, Clock, Eye, Leaf, MapPin, Target} from 'lucide-react';
 import styles from '../../about-event.module.css';
+import AboutPeople from '../../about-people';
 
 const policyCouncil = [
   ['الدكتور گل‌محمدي', 'رئيس المجلس'],
@@ -72,6 +73,8 @@ export default function ArabicAboutEvent() {
         <Council id="policy-council-title" title="مجلس السياسات" members={policyCouncil}/>
         <Council id="executive-council-title" title="المجلس التنفيذي" members={executiveCouncil}/>
       </div>
+
+      <AboutPeople locale="ar"/>
 
       <section className={styles.registration} aria-labelledby="about-registration-title">
         <div><h2 id="about-registration-title">انضموا إلى إيران مكس</h2><p>أدخلوا بياناتكم في استمارة التسجيل لزيارة المعرض.</p></div>
