@@ -5,6 +5,7 @@ import {Header, Footer} from '../../components';
 import {getCompany} from '../../../lib/server/company-store.mjs';
 export const dynamic='force-dynamic';
 import styles from '../styles.module.css';
+import {CompanyGallery} from './company-gallery';
 
 
 export async function generateMetadata({params}) {
@@ -22,7 +23,7 @@ export default async function CompanyPage({params}) {
     <section className={styles.profileHero}>
       <nav className={styles.breadcrumb} aria-label="مسیر صفحه"><Link href="/">خانه</Link><span aria-hidden="true">/</span><Link href="/exhibition">نمایشگاه</Link><span aria-hidden="true">/</span><span aria-current="page">{company.name}</span></nav>
       <div className={styles.profileIdentity}><div><h1>{company.name}</h1><p>معرفی مجموعه در نمایشگاه ایران مِکس</p></div><span className={styles.profileLogo}><img src={company.logo} alt={`نشان ${company.name}`} width="240" height="160"/></span></div>
-      <p className={styles.profileNotice}>انتشار اطلاعات مجموعه به معنی تخصیص غرفه نیست.</p>
+      {company.gallery?.length>0&&<CompanyGallery images={company.gallery} name={company.name}/>}
     </section>
     <div className={styles.profileContent}>
       <div className={styles.profileMain}>
