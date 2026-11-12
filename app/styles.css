@@ -575,7 +575,7 @@ body{background:#061f2a;color:#edf5f5}.header{background:#071726}.header-cta{bor
 .home-page .company-carousel>p{margin-bottom:24px}
 .sync-gallery{display:grid;gap:14px;direction:ltr}
 .sync-gallery-row{display:flex;gap:14px;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:thin;scrollbar-color:#71999d transparent;padding:4px 4px 10px}
-.sync-gallery-card{flex:0 0 clamp(220px,26vw,340px);height:clamp(130px,13vw,165px);display:grid;grid-template-rows:minmax(0,1fr);place-items:center;border-radius:8px;background:#fff;overflow:hidden}
+.sync-gallery-card{flex:0 0 clamp(220px,42%,600px);height:clamp(130px,13vw,165px);display:grid;grid-template-rows:minmax(0,1fr);place-items:center;border-radius:8px;background:#fff;overflow:hidden}
 .sync-gallery-card img{display:block;width:78%;height:75%;object-fit:contain}
 .sync-gallery-card:focus-visible{outline:3px solid var(--lime);outline-offset:-4px}
 .sync-gallery-toggle{justify-self:center;min-height:44px;padding:8px 16px;border:1px solid #71999d;border-radius:8px;color:#edf5f5;background:transparent;font:inherit;font-size:.8rem;cursor:pointer}
