@@ -18,11 +18,12 @@ export default function Home(){return <><Header locale="fa"/><main className="ho
     <span className="mountain-talk-kicker">از برنامه‌های ایران مِکس</span>
     <h2 id="mountain-talk-title" lang="en" dir="ltr">Mountain Talk</h2>
     <p>پای صحبت چهره‌های کوهستان</p>
-    <div className="mountain-talk-details"><span>پنج‌شنبه ۱۹ آذر ۱۴۰۵، ساعت ۱۴:۰۰</span><span>تهران، هتل پارسیان انقلاب</span></div>
+    <div className="mountain-talk-details"><span>پنج‌شنبه ۱۹ آذر ۱۴۰۵</span><span>تهران، هتل پارسیان انقلاب</span></div>
   </div>
   <div className="mountain-talk-posters" aria-label="پوستر سخنرانان مانتین تاک">
     <figure><img src="/mountain-talk/hamid-mosaedyan.webp" width="1000" height="1252" loading="lazy" alt="پوستر سخنرانی دکتر حمید مساعدیان در Mountain Talk، پنج‌شنبه ۱۹ آذر ۱۴۰۵ ساعت ۱۴، هتل پارسیان انقلاب"/></figure>
     <figure><img src="/mountain-talk/mohammad-darvish.webp" width="1000" height="1252" loading="lazy" alt="پوستر سخنرانی محمد درویش در Mountain Talk، پنج‌شنبه ۱۹ آذر ۱۴۰۵ ساعت ۱۴، هتل پارسیان انقلاب"/></figure>
+    <figure><img src="/mountain-talk/kaveh-kashefi.webp" width="1000" height="1252" loading="lazy" alt="پوستر سخنرانی دکتر کاوه کاشفی در Mountain Talk، پنج‌شنبه ۱۹ آذر ۱۴۰۵ ساعت ۱۵، هتل پارسیان انقلاب"/></figure>
   </div>
 </section>
 <section className="event-visit section" aria-labelledby="visit-details-title"><VisitDetails/><div data-reveal className="event-video"><h2 id="event-video-title">فیلم معرفی نمایشگاه</h2><IntroVideo/></div></section>
