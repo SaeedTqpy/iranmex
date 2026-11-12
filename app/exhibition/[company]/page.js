@@ -22,7 +22,7 @@ export default async function CompanyPage({params}) {
   return <><Header/><main className={`${styles.page} ${styles.profilePage} company-profile-page`}>
     <section className={styles.profileHero}>
       <nav className={styles.breadcrumb} aria-label="مسیر صفحه"><Link href="/">خانه</Link><span aria-hidden="true">/</span><Link href="/exhibition">نمایشگاه</Link><span aria-hidden="true">/</span><span aria-current="page">{company.name}</span></nav>
-      <div className={styles.profileIdentity}><div><h1>{company.name}</h1><p>معرفی مجموعه در نمایشگاه ایران مِکس</p></div><span className={styles.profileLogo}><img src={company.logo} alt={`نشان ${company.name}`} width="240" height="160"/></span></div>
+      <div className={styles.profileIdentity}><div><h1>{company.name}</h1>{company.slogan?<p className={styles.profileSlogan} dir="auto">{company.slogan}</p>:<p>معرفی مجموعه در نمایشگاه ایران مِکس</p>}</div><span className={styles.profileLogo}><img src={company.logo} alt={`نشان ${company.name}`} width="240" height="160"/></span></div>
       {company.gallery?.length>0&&<CompanyGallery images={company.gallery} name={company.name}/>}
     </section>
     <div className={styles.profileContent}>

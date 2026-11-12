@@ -30,6 +30,7 @@
 .page .status{font-size:.8rem;line-height:1.9;margin-top:12px;color:#b7cec6}
 .boothLink{padding:24px 8% 42px;line-height:2.2;display:flex;flex-wrap:wrap;gap:8px 18px;color:#bdd2cd}.boothLink a{display:inline-flex;align-items:center;gap:8px;color:var(--lime)}
 .profileHero{background:#0b3039}.profileIdentity{display:flex;justify-content:space-between;gap:40px;align-items:center}.profileIdentity p{margin:0}.profileLogo{display:flex;align-items:center;justify-content:center;background:#fff;border-radius:12px;padding:24px;width:240px;height:180px;flex:none}.profileLogo img{width:100%;height:100%;object-fit:contain}
+.profilePage .profileSlogan{max-width:42rem;color:#e3f0e8;font-size:clamp(1rem,1.5vw,1.25rem);line-height:2;overflow-wrap:anywhere}
 .profileHero .profileNotice{font-size:.9rem;border-top:1px solid #739e9b55;padding-top:24px;margin:28px 0 0}
 .profileContent{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:48px;align-items:start}.profileMain section+section{margin-top:45px;padding-top:35px;border-top:1px solid #739e9b55}.profileMain p{margin:0}.profileMain h2,.contactCard h2{font-size:1.5rem}
 .contactCard{background:#10343e;padding:28px;border:1px solid #7bab9e44;border-radius:14px}.contactCard p{font-size:.95rem}.contactCard ul{list-style:none;padding:0;margin:0;display:grid;gap:18px}.contactCard a{display:inline-flex;align-items:center;gap:9px;line-height:1.9;overflow-wrap:anywhere;color:var(--lime)}.contactCard .directoryBack{display:flex;margin-top:28px;padding-top:20px;border-top:1px solid #739e9b55;font-size:.9rem}

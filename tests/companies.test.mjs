@@ -27,3 +27,21 @@ test('published and original companies can be deleted without stale edits restor
  const input={slug:'published-company',name:'شرکت آزمایشی',status:'published',logoId:id};assert.deepEqual(saveCompany(input,'admin'),{slug:input.slug});const current=getCompany(input.slug);assert.ok(deleteCompany(input.slug,current.updatedAt-1,'admin').error);assert.deepEqual(deleteCompany(input.slug,current.updatedAt,'admin'),{ok:true});assert.equal(getCompany(input.slug),null);assert.equal(getCompany(input.slug,{admin:true}),null);assert.ok(saveCompany({...input,originalSlug:input.slug,updatedAt:current.updatedAt},'admin').error);
  const audit=openAdminStore();assert.equal(audit.db.prepare("SELECT count(*) AS n FROM admin_audit WHERE action='company_deleted'").get().n,2);audit.close();
 });
+
+test('company galleries enforce four existing images and preserve order across edits',t=>{
+ const dir=mkdtempSync(join(tmpdir(),'iranmex-gallery-'));const previous=process.env.REGISTRATION_DB_PATH;process.env.REGISTRATION_DB_PATH=join(dir,'db.sqlite');t.after(()=>{if(previous===undefined)delete process.env.REGISTRATION_DB_PATH;else process.env.REGISTRATION_DB_PATH=previous;rmSync(dir,{recursive:true,force:true});});
+ const ids=['a','b','c','d','e'].map(char=>char.repeat(32));const store=openAdminStore();for(const id of ids)store.db.prepare('INSERT INTO admin_media(id,data,width,height,created_at) VALUES (?,?,?,?,?)').run(id,Buffer.from('image'),1,1,Date.now());store.close();
+ const input={slug:'gallery-company',name:'شرکت آزمایشی',status:'published',logoId:ids[0],galleryIds:ids.slice(0,4)};
+ assert.ok(saveCompany({...input,galleryIds:ids},'admin').error);assert.ok(saveCompany({...input,galleryIds:[ids[0],ids[0]]},'admin').error);assert.ok(saveCompany({...input,galleryIds:['f'.repeat(32)]},'admin').error);
+ assert.deepEqual(saveCompany(input,'admin'),{slug:input.slug});let company=getCompany(input.slug);assert.deepEqual(company.gallery,ids.slice(0,4).map(id=>`/news/media/${id}`));
+ const edit={...input,originalSlug:input.slug,updatedAt:company.updatedAt,galleryIds:[ids[3],ids[1]]};assert.deepEqual(saveCompany(edit,'admin'),{slug:input.slug});company=getCompany(input.slug);assert.deepEqual(company.gallery,[ids[3],ids[1]].map(id=>`/news/media/${id}`));
+ const {galleryIds,...legacyEdit}=edit;assert.deepEqual(saveCompany({...legacyEdit,updatedAt:company.updatedAt},'admin'),{slug:input.slug});assert.deepEqual(getCompany(input.slug).gallery,company.gallery);
+});
+
+test('company slogan is optional, validated, saved and removable',t=>{
+ const dir=mkdtempSync(join(tmpdir(),'iranmex-slogan-'));const previous=process.env.REGISTRATION_DB_PATH;process.env.REGISTRATION_DB_PATH=join(dir,'db.sqlite');t.after(()=>{if(previous===undefined)delete process.env.REGISTRATION_DB_PATH;else process.env.REGISTRATION_DB_PATH=previous;rmSync(dir,{recursive:true,force:true});});
+ const input={slug:'slogan-company',name:'شرکت آزمایشی',status:'draft',slogan:'  همراه مسیر شما  '};
+ assert.ok(saveCompany({...input,slogan:'الف'.repeat(161)},'admin').error);assert.ok(saveCompany({...input,slogan:'خط اول\nخط دوم'},'admin').error);
+ assert.deepEqual(saveCompany(input,'admin'),{slug:input.slug});let company=getCompany(input.slug,{admin:true});assert.equal(company.slogan,'همراه مسیر شما');
+ assert.deepEqual(saveCompany({...input,originalSlug:input.slug,updatedAt:company.updatedAt,slogan:''},'admin'),{slug:input.slug});company=getCompany(input.slug,{admin:true});assert.equal(company.slogan,null);
+});
