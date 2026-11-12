@@ -7,11 +7,11 @@ const policyCouncil = [
   ['Dr. Gol-Mohammadi', 'Council Chair'],
   ['Dr. Salehi Jozani', 'Vice Chair'],
   ['Dr. Mojgan Kosari', 'First Secretary'],
-  ['Eng. Mehdi Arbab', 'Second Secretary', '/people/mehdi-arbab.webp'],
+  ['Eng. Mehdi Arbab', 'Second Secretary', '/people/mehdi-arbab-portrait.webp'],
 ];
 
 const executiveCouncil = [
-  ['Mehdi Arbab', 'Executive Director', '/people/mehdi-arbab.webp'],
+  ['Mehdi Arbab', 'Executive Director', '/people/mehdi-arbab-portrait.webp'],
   ['Eng. Eshaghi', 'Director of Communications and Media'],
   ['Dr. Nouri', 'Director of Scientific and Content Programs'],
 ];
