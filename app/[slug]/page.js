@@ -4,6 +4,7 @@ import {ArrowUpLeft,CalendarDays,MapPin,Clock} from 'lucide-react';
 import {Header,Footer,Button,ContactDetails,DemoForm} from '../components';
 import {categories} from '../data';
 import AboutEvent from '../about-event';
+export const dynamic='force-dynamic';
 const data={about:['درباره رویداد','درباره ایران مِکس','نمایشگاه تخصصی و ملی کوهنوردی، سنگ‌نوردی و طبیعت‌گردی، تجهیزات و صنایع وابسته'],events:['تقویم ایران مِکس','هر رویداد، یک مسیر تازه.','از نمایشگاه تجهیزات تا دورهمی‌های جامعه طبیعت‌گردی؛ قرار بعدی‌مان را اینجا پیدا کنید.'],exhibitors:['همراه کسب‌وکارها','برند شما، در قلب ماجراجویی.','در کنار جامعه‌ای از علاقه‌مندان، تجهیزات و تجربه‌های خود را از نزدیک معرفی کنید.'],visitors:['راهنمای بازدید','برای یک روز پر از کشف آماده‌اید؟','هر آنچه برای حضور در نمایشگاه و ساختن یک تجربه خوب نیاز دارید، اینجاست.'],journal:['مجله ایران مِکس','داستان‌هایی از جنس مسیر.','خبرها، روایت‌ها و دانستنی‌هایی برای آنها که دوست دارند بیشتر کشف کنند.'],contact:['تماس با ما','گفت‌وگو، آغاز یک مسیر است.','سؤالی درباره نمایشگاه، همکاری یا حضور در ایران مِکس دارید؟ خوشحال می‌شویم از شما بشنویم.']};
 export function generateStaticParams(){return Object.keys(data).map(slug=>({slug}))}
 export async function generateMetadata({params}){const {slug}=await params;return {title:`${data[slug]?.[0]||''} | ایران مِکس`}}

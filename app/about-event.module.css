@@ -94,7 +94,7 @@
 .organizerLogo{display:block;width:108px;height:96px;flex:none;object-fit:contain}
 @media(max-width:480px){.page .organizerList dd{gap:14px;min-height:88px}.organizerLogo{width:84px;height:78px}}
 .page .registration{border-top:0}
-@media(min-width:1051px){.council:last-child .members{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1051px){.council .members{grid-template-columns:repeat(var(--member-columns,4),minmax(0,1fr))}}
 .page .registration{position:relative;isolation:isolate}
 .page .registration::before{content:"";position:absolute;inset:-100px 0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 85% 50% at 60% 50%,#1b4b504d,transparent 75%);mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 70%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 70%,transparent)}
 

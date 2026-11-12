@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {Header, Footer} from '../../components';
 import EnglishAboutEvent from './about-event-en';
+export const dynamic='force-dynamic';
 
 export const metadata={title:'About IRANMEX | IRANMEX',description:'Learn about the IRANMEX exhibition, its organizers, vision and councils.'};
 

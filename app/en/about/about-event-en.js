@@ -2,36 +2,8 @@ import Link from 'next/link';
 import {ArrowUpLeft, CalendarDays, Clock, Eye, Leaf, MapPin, Target} from 'lucide-react';
 import styles from '../../about-event.module.css';
 import AboutPeople from '../../about-people';
-
-const policyCouncil = [
-  ['Dr. Gol-Mohammadi', 'Council Chair'],
-  ['Dr. Salehi Jozani', 'Vice Chair'],
-  ['Dr. Mojgan Kosari', 'First Secretary'],
-  ['Eng. Mehdi Arbab', 'Second Secretary', '/people/mehdi-arbab-portrait.webp'],
-];
-
-const executiveCouncil = [
-  ['Mehdi Arbab', 'Executive Director', '/people/mehdi-arbab-portrait.webp'],
-  ['Eng. Eshaghi', 'Director of Communications and Media'],
-  ['Dr. Nouri', 'Director of Scientific and Content Programs'],
-];
-
-function Council({id, title, members}) {
-  return (
-    <section className={styles.council} aria-labelledby={id}>
-      <h2 id={id}>{title}</h2>
-      <ul className={styles.members}>
-        {members.map(([name, role, photo]) => (
-          <li key={role} className={photo ? styles.memberWithPhoto : undefined}>
-            {photo && <img className={styles.memberPhoto} src={photo} alt="" width="600" height="790"/>}
-            <div><h3>{name}</h3>
-            <p>{role}</p></div>
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
+import CouncilList from '../../council-list';
+import {getCouncils} from '../../../lib/server/council-store.mjs';
 
 export default function EnglishAboutEvent() {
   return (
@@ -69,10 +41,7 @@ export default function EnglishAboutEvent() {
         </div>
       </section>
 
-      <div className={styles.councils}>
-        <Council id="policy-council-title" title="Policy Council" members={policyCouncil}/>
-        <Council id="executive-council-title" title="Executive Council" members={executiveCouncil}/>
-      </div>
+      <CouncilList items={getCouncils().items} locale="en"/>
 
       <AboutPeople locale="en"/>
 
