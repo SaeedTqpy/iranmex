@@ -583,10 +583,9 @@ body{background:#061f2a;color:#edf5f5}.header{background:#071726}.header-cta{bor
 @keyframes sync-gallery-move{to{transform:translateX(-33.333333%)}}
 .sync-gallery-card img{display:block;width:78%;height:75%;object-fit:contain}
 .sync-gallery-card:focus-visible{outline:3px solid var(--lime);outline-offset:-4px}
-.sync-gallery-toggle{justify-self:center;min-height:44px;padding:8px 16px;border:1px solid #71999d;border-radius:8px;color:#edf5f5;background:transparent;font:inherit;font-size:.8rem;cursor:pointer}
-.sync-gallery-toggle:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
-@media(prefers-reduced-motion:reduce){.sync-gallery-track{animation:none!important;transform:none}.sync-gallery-group[aria-hidden="true"],.sync-gallery-toggle{display:none}}
-@media(hover:hover) and (pointer:fine){.sync-gallery-card{transition:box-shadow 180ms ease}.sync-gallery-card:hover{box-shadow:inset 0 0 0 3px var(--lime)}}
+.sync-gallery:focus-within .sync-gallery-track{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.sync-gallery-track{animation:none!important;transform:none}.sync-gallery-group[aria-hidden="true"]{display:none}}
+@media(hover:hover) and (pointer:fine){.sync-gallery:hover .sync-gallery-track{animation-play-state:paused}.sync-gallery-card{transition:box-shadow 180ms ease}.sync-gallery-card:hover{box-shadow:inset 0 0 0 3px var(--lime)}}
 @media(max-width:700px){.sync-gallery{gap:8px;min-width:0}.sync-gallery-row{touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch}.sync-gallery-group{gap:10px;padding-right:10px}.sync-gallery-card{flex-basis:clamp(150px,55vw,240px);height:125px}}
 @media(max-width:700px){.home-page .virtual-exhibition{justify-content:stretch}.home-page .virtual-exhibition-link{width:100%}.home-page .company-carousel{margin-top:40px;padding:22px 16px}}
 
