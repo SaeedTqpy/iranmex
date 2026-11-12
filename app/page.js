@@ -1,6 +1,7 @@
 import {listCompanies} from '../lib/server/company-store.mjs';
 export const dynamic='force-dynamic';
 import {getSponsors} from '../lib/server/sponsor-store.mjs';
+import {getMountainTalks} from '../lib/server/mountain-talk-store.mjs';
 import Link from 'next/link';
 import {ArrowUpLeft,CalendarDays,MapPin,Backpack,Apple,Activity,GraduationCap,HeartPulse,Compass,BookOpen,Leaf} from 'lucide-react';
 import {Header,Footer,CompaniesCarousel,HomeMotion} from './components';
@@ -21,9 +22,7 @@ export default function Home(){return <><Header locale="fa"/><main className="ho
     <div className="mountain-talk-details"><span>پنج‌شنبه ۱۹ آذر ۱۴۰۵</span><span>تهران، هتل پارسیان انقلاب</span></div>
   </div>
   <div className="mountain-talk-posters" aria-label="پوستر سخنرانان مانتین تاک">
-    <figure><img src="/mountain-talk/hamid-mosaedyan.webp" width="1000" height="1252" loading="lazy" alt="پوستر سخنرانی دکتر حمید مساعدیان در Mountain Talk، پنج‌شنبه ۱۹ آذر ۱۴۰۵ ساعت ۱۴، هتل پارسیان انقلاب"/></figure>
-    <figure><img src="/mountain-talk/mohammad-darvish.webp" width="1000" height="1252" loading="lazy" alt="پوستر سخنرانی محمد درویش در Mountain Talk، پنج‌شنبه ۱۹ آذر ۱۴۰۵ ساعت ۱۴، هتل پارسیان انقلاب"/></figure>
-    <figure><img src="/mountain-talk/kaveh-kashefi.webp" width="1000" height="1252" loading="lazy" alt="پوستر سخنرانی دکتر کاوه کاشفی در Mountain Talk، پنج‌شنبه ۱۹ آذر ۱۴۰۵ ساعت ۱۵، هتل پارسیان انقلاب"/></figure>
+    {getMountainTalks().items.map(talk=><figure key={talk.id}><img src={talk.image} width="1000" height="1252" loading="lazy" alt={talk.alt||`پوستر سخنرانی ${talk.name} در Mountain Talk`}/></figure>)}
   </div>
 </section>
 <section className="event-visit section" aria-labelledby="visit-details-title"><VisitDetails/><div data-reveal className="event-video"><h2 id="event-video-title">فیلم معرفی نمایشگاه</h2><IntroVideo/></div></section>

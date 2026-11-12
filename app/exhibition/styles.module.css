@@ -34,6 +34,7 @@
 .profileHero .profileNotice{font-size:.9rem;border-top:1px solid #739e9b55;padding-top:24px;margin:28px 0 0}
 .profileContent{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:48px;align-items:start}.profileMain section+section{margin-top:45px;padding-top:35px;border-top:1px solid #739e9b55}.profileMain p{margin:0}.profileMain h2,.contactCard h2{font-size:1.5rem}
 .contactCard{background:#10343e;padding:28px;border:1px solid #7bab9e44;border-radius:14px}.contactCard p{font-size:.95rem}.contactCard ul{list-style:none;padding:0;margin:0;display:grid;gap:18px}.contactCard a{display:inline-flex;align-items:center;gap:9px;line-height:1.9;overflow-wrap:anywhere;color:var(--lime)}.contactCard .directoryBack{display:flex;margin-top:28px;padding-top:20px;border-top:1px solid #739e9b55;font-size:.9rem}
+.companyCity{display:flex;align-items:flex-start;gap:9px;line-height:1.9;overflow-wrap:anywhere}.companyCity svg{flex:none;margin-top:.35em;color:var(--lime)}
 .products{padding-inline-start:22px}.products h3{font-size:1.1rem}.products li+li{margin-top:24px}.visuallyHidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 @media(hover:hover) and (pointer:fine){.companyCard:hover{border-color:var(--lime);background:#16444c}.primaryButton:hover{background:#c6ff55}}
 @media(max-width:1100px){.companyGrid{grid-template-columns:repeat(3,minmax(0,1fr))}}

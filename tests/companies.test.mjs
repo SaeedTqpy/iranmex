@@ -45,3 +45,12 @@ test('company slogan is optional, validated, saved and removable',t=>{
  assert.deepEqual(saveCompany(input,'admin'),{slug:input.slug});let company=getCompany(input.slug,{admin:true});assert.equal(company.slogan,'همراه مسیر شما');
  assert.deepEqual(saveCompany({...input,originalSlug:input.slug,updatedAt:company.updatedAt,slogan:''},'admin'),{slug:input.slug});company=getCompany(input.slug,{admin:true});assert.equal(company.slogan,null);
 });
+
+test('company city is optional, validated, retained for older editors and removable',t=>{
+ const dir=mkdtempSync(join(tmpdir(),'iranmex-city-'));const previous=process.env.REGISTRATION_DB_PATH;process.env.REGISTRATION_DB_PATH=join(dir,'db.sqlite');t.after(()=>{if(previous===undefined)delete process.env.REGISTRATION_DB_PATH;else process.env.REGISTRATION_DB_PATH=previous;rmSync(dir,{recursive:true,force:true});});
+ const input={slug:'city-company',name:'شرکت آزمایشی',status:'draft',city:'  تهران  '};
+ assert.ok(saveCompany({...input,city:'ش'.repeat(101)},'admin').error);assert.ok(saveCompany({...input,city:'تهران\nشیراز'},'admin').error);
+ assert.deepEqual(saveCompany(input,'admin'),{slug:input.slug});let company=getCompany(input.slug,{admin:true});assert.equal(company.city,'تهران');
+ const {city,...oldClient}=input;assert.deepEqual(saveCompany({...oldClient,originalSlug:input.slug,updatedAt:company.updatedAt},'admin'),{slug:input.slug});company=getCompany(input.slug,{admin:true});assert.equal(company.city,'تهران');
+ assert.deepEqual(saveCompany({...input,city:'',originalSlug:input.slug,updatedAt:company.updatedAt},'admin'),{slug:input.slug});assert.equal(getCompany(input.slug,{admin:true}).city,null);
+});
