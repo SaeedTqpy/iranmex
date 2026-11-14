@@ -178,3 +178,39 @@ details preserves its position. Concurrent changes to the list are rejected
 and the administrator should refresh before retrying. Moves are audited.
 The order is stored in the shared SQLite database and included in its backups.
 The static preview does not use database-managed ordering.
+
+## Homepage introduction clip
+
+Open `/admin/intro-video` to select, preview and upload a replacement MP4.
+Uploading publishes immediately in all three homepage languages. The previous
+bundled clip and poster have been removed. With no uploaded clip, the entire
+video player section is hidden. The panel supports progress, cancellation and
+deletion. Deleting a clip hides the player again. No rebuild is needed after
+uploads or deletion on the Node server.
+
+Uploads are limited to 80 MiB and streamed to private files rather than buffered
+in RAM or stored as SQLite blobs. MP4 container boxes are checked; the server
+does not transcode or validate every codec. Use MP4 with H.264 video and AAC audio
+for browser compatibility. Playback supports byte ranges for seeking.
+Only the currently published clip is served. Mutations require an administrator,
+the correct Origin and the current version; concurrent stale changes are rejected.
+A failed upload does not replace the published clip. An interrupted connection
+can lose the completion response; refresh the panel to verify the result.
+
+Files live in `intro-videos/` beside `REGISTRATION_DB_PATH`, normally
+`/var/lib/iranmex/intro-videos/`. Keep this directory persistent, private and
+writable by the application user. Include it **alongside the SQLite backup**.
+To take a consistent backup of both, stop application writes while backing up.
+Normal replacements/deletion remove the previous file. A process crash may leave
+an unreferenced file; remove only files not referenced by the current database
+during maintenance while uploads are stopped. The static preview omits the clip.
+
+### Upload proxy configuration
+
+The existing production Nginx limit may be 5 MiB. Add the dedicated
+`location = /api/admin/intro-video` block from
+`deploy/nginx-iranmex.conf.example` to the same server block that proxies the
+site, then validate and reload Nginx. It permits 81 MiB and allows time for uploads.
+Retain the existing domain, HTTPS, Cloudflare real-IP and login configuration.
+Do not replace the production server block wholesale with the example.
+Any CDN or other reverse proxy must also permit the upload size and duration.

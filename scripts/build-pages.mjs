@@ -13,9 +13,10 @@ try {
   for(const dir of ['app','lib','content','public']) await cp(join(root,dir),join(staging,dir),{recursive:true});
   for(const file of ['package.json','package-lock.json']) await cp(join(root,file),join(staging,file));
   await symlink(join(root,'node_modules'),join(staging,'node_modules'),'dir');
-  for(const path of ['app/api','app/admin','app/news/media']) await rm(join(staging,path),{recursive:true,force:true});
+  for(const path of ['app/api','app/admin','app/news/media','app/intro-video/[id]']) await rm(join(staging,path),{recursive:true,force:true});
   await writeFile(join(staging,'next.config.mjs'),`export default {output:'export',trailingSlash:true,basePath:${JSON.stringify(base)},images:{unoptimized:true}};\n`);
   const modify=async (path,fn)=>{const file=join(staging,path);await writeFile(file,fn(await readFile(file,'utf8')));};
+  await writeFile(join(staging,'app/intro-video-section.js'),'export default function IntroVideoSection(){return null;}\n');
   // Static previews contain the file-managed directory only; the admin database is server-only.
   for(const path of ['app/page.js','app/en/page.js','app/ar/page.js','app/exhibition/page.js','app/en/exhibition/page.js','app/ar/exhibition/page.js']){
     await modify(path,s=>s.replace(/import \{listCompanies\} from '[^']+';\nexport const dynamic='force-dynamic';/,"import {companies as previewCompanies} from '"+(path.startsWith('app/en/')||path.startsWith('app/ar/')?(path.endsWith('/exhibition/page.js')?'../../exhibition/companies':'../exhibition/companies'):(path==='app/page.js'?'./exhibition/companies':'./companies'))+"';\nconst listCompanies=()=>previewCompanies;"));
