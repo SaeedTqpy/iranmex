@@ -515,7 +515,7 @@ body{background:#061f2a;color:#edf5f5}.header{background:#071726}.header-cta{bor
 .hero-organizers{align-items:center;gap:clamp(18px,3vw,40px);flex-wrap:nowrap}
 .hero-organizers>.organizer-logo{min-width:0;display:block}
 .organizer-berc{flex:1.5 1 0;max-width:280px;transform:translateY(5%)}
-.organizer-alpine{flex:.95 1 0;max-width:177px}
+.organizer-alpine{flex:.95 1 0;max-width:177px;transform:scale(1.15)}
 .organizer-logo img{display:block;width:100%;height:auto}
 @media(max-width:480px){.hero-organizers{gap:18px}}
 
