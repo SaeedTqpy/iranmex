@@ -15,3 +15,5 @@
 @media(max-width:700px){.sponsorEditorBody{grid-template-columns:1fr}.sponsorLogoPreview{max-width:200px}.sponsorsIntro .secondary{width:100%}.sponsorEditorItem{padding:16px}}
 .talkPosterPreview{background:#071e29;color:#d0e3dc}.talkPosterPreview img{height:auto;max-height:200px}
 .councilEditorGroup{margin-top:30px;padding-top:24px;border-top:1px solid #739e9b55}.councilEditorGroup .sponsorsIntro{margin-bottom:20px}.councilEditorGroup h2{margin:0;font-size:1.2rem}.sponsorEditorHead h3{font-size:1rem;margin:0;overflow-wrap:anywhere}.councilTranslations summary{color:#e1eee8;cursor:pointer;line-height:2}.councilTranslations summary:focus-visible{outline:2px solid var(--lime);outline-offset:3px}.councilTranslations .editorGrid{margin-top:14px}
+
+.companyOrder{display:flex;flex-wrap:wrap;gap:6px}.companyOrder button{min-height:44px;padding:8px 12px}.companyOrder button:focus-visible{outline:2px solid var(--lime);outline-offset:3px}

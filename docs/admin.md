@@ -164,3 +164,14 @@ parameters and replacing any existing UTM parameters. Generated links are not
 saved as records; copy the link for use in the campaign. Source, medium and
 campaign are required in the builder. Campaign reports reflect page views after
 the links are opened, rather than the number of links generated.
+
+## Company display order
+
+At `/admin/companies`, each company has up, down, first and last controls.
+Each move is saved immediately and applies to the public directory and home
+carousels in all languages on the Node server. Drafts retain their place but
+are hidden from public listings. New companies are appended; editing company
+details preserves its position. Concurrent changes to the list are rejected
+and the administrator should refresh before retrying. Moves are audited.
+The order is stored in the shared SQLite database and included in its backups.
+The static preview does not use database-managed ordering.

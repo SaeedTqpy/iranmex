@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdtempSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
-import {listCompanies,getCompany,saveCompany,deleteCompany} from '../lib/server/company-store.mjs';
+import {listCompanies,getCompany,saveCompany,deleteCompany,moveCompany} from '../lib/server/company-store.mjs';
 import {openAdminStore} from '../lib/server/admin-store.mjs';
 
 test('company publication, legacy overrides, validation and concurrent edits',t=>{
@@ -53,4 +53,31 @@ test('company city is optional, validated, retained for older editors and remova
  assert.deepEqual(saveCompany(input,'admin'),{slug:input.slug});let company=getCompany(input.slug,{admin:true});assert.equal(company.city,'تهران');
  const {city,...oldClient}=input;assert.deepEqual(saveCompany({...oldClient,originalSlug:input.slug,updatedAt:company.updatedAt},'admin'),{slug:input.slug});company=getCompany(input.slug,{admin:true});assert.equal(company.city,'تهران');
  assert.deepEqual(saveCompany({...input,city:'',originalSlug:input.slug,updatedAt:company.updatedAt},'admin'),{slug:input.slug});assert.equal(getCompany(input.slug,{admin:true}).city,null);
+});
+
+test('company ordering persists across moves, edits, drafts, additions and deletions',t=>{
+ const dir=mkdtempSync(join(tmpdir(),'iranmex-order-'));const previous=process.env.REGISTRATION_DB_PATH;process.env.REGISTRATION_DB_PATH=join(dir,'db.sqlite');t.after(()=>{if(previous===undefined)delete process.env.REGISTRATION_DB_PATH;else process.env.REGISTRATION_DB_PATH=previous;rmSync(dir,{recursive:true,force:true});});
+ const slugs=()=>listCompanies({admin:true}).map(item=>item.slug);
+ const initial=slugs(), first=initial[0], last=initial.at(-1);
+ const move=(slug,direction)=>moveCompany({slug,direction,expectedOrder:slugs()},'admin');
+ assert.ok(moveCompany({slug:first,direction:'invalid',expectedOrder:initial},'admin').error);
+ assert.ok(moveCompany({slug:'missing',direction:'first',expectedOrder:initial},'admin').error);
+ assert.deepEqual(move(last,'first').order,[last,...initial.slice(0,-1)]);
+ assert.equal(listCompanies()[0].slug,last);
+ assert.ok(moveCompany({slug:first,direction:'last',expectedOrder:initial},'admin').conflict);
+ assert.deepEqual(move(last,'down').order,[first,last,...initial.slice(1,-1)]);
+ assert.equal(move(last,'up').order[0],last);
+ assert.deepEqual(move(last,'last').order,initial);
+ assert.deepEqual(move(first,'up').order,initial);
+ assert.deepEqual(move(last,'down').order,initial);
+ assert.deepEqual(saveCompany({slug:'order-draft',name:'شرکت جدید',status:'draft'},'admin'),{slug:'order-draft'});
+ assert.equal(slugs().at(-1),'order-draft');
+ move('order-draft','first');assert.equal(slugs()[0],'order-draft');assert.equal(listCompanies().some(item=>item.slug==='order-draft'),false);
+ const company=getCompany(first,{admin:true});
+ assert.deepEqual(saveCompany({slug:first,originalSlug:first,updatedAt:company.updatedAt,name:company.name,status:'published',keepLegacyLogo:true},'admin'),{slug:first});
+ assert.equal(slugs()[0],'order-draft');assert.equal(slugs()[1],first);
+ const edited=getCompany(first,{admin:true});
+ assert.deepEqual(deleteCompany(first,edited.updatedAt,'admin'),{ok:true});assert.equal(slugs().includes(first),false);
+ assert.equal(move(last,'first').order[0],last);assert.equal(listCompanies()[0].slug,last);
+ const audit=openAdminStore();assert.ok(audit.db.prepare("SELECT count(*) AS n FROM admin_audit WHERE action='company_reordered'").get().n>=5);audit.close();
 });
