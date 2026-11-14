@@ -81,3 +81,19 @@ test('company ordering persists across moves, edits, drafts, additions and delet
  assert.equal(move(last,'first').order[0],last);assert.equal(listCompanies()[0].slug,last);
  const audit=openAdminStore();assert.ok(audit.db.prepare("SELECT count(*) AS n FROM admin_audit WHERE action='company_reordered'").get().n>=5);audit.close();
 });
+
+test('dragging supports exact positions and rejects invalid targets and stale orders',t=>{
+ const dir=mkdtempSync(join(tmpdir(),'iranmex-drag-'));const previous=process.env.REGISTRATION_DB_PATH;process.env.REGISTRATION_DB_PATH=join(dir,'db.sqlite');t.after(()=>{if(previous===undefined)delete process.env.REGISTRATION_DB_PATH;else process.env.REGISTRATION_DB_PATH=previous;rmSync(dir,{recursive:true,force:true});});
+ const slugs=()=>listCompanies({admin:true}).map(item=>item.slug);
+ const initial=slugs(),slug=initial[0];
+ for(const targetIndex of [-1,initial.length,1.5,'2',null,undefined]){
+   assert.ok(moveCompany({slug,direction:'position',targetIndex,expectedOrder:initial},'admin').error);
+   assert.deepEqual(slugs(),initial);
+ }
+ const moved=moveCompany({slug,direction:'position',targetIndex:4,expectedOrder:initial},'admin');
+ const expected=[...initial];expected.splice(0,1);expected.splice(4,0,slug);
+ assert.deepEqual(moved.order,expected);assert.deepEqual(slugs(),expected);assert.deepEqual(listCompanies().map(item=>item.slug),expected);
+ assert.ok(moveCompany({slug,direction:'position',targetIndex:2,expectedOrder:initial},'admin').conflict);
+ assert.deepEqual(moveCompany({slug,direction:'position',targetIndex:4,expectedOrder:expected},'admin').order,expected);
+ assert.deepEqual(moveCompany({slug,direction:'position',targetIndex:0,expectedOrder:expected},'admin').order,initial);
+});

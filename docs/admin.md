@@ -167,7 +167,10 @@ the links are opened, rather than the number of links generated.
 
 ## Company display order
 
-At `/admin/companies`, each company has up, down, first and last controls.
+At `/admin/companies`, drag the three-line handle beside a company up or down
+with a mouse or touch. Drop to save automatically; Escape cancels the drag.
+The list scrolls near the top and bottom of the viewport while dragging.
+Keyboard users can focus the handle and use ArrowUp/ArrowDown or Home/End.
 Each move is saved immediately and applies to the public directory and home
 carousels in all languages on the Node server. Drafts retain their place but
 are hidden from public listings. New companies are appended; editing company
