@@ -594,7 +594,7 @@ body{background:#061f2a;color:#edf5f5}.header{background:#071726}.header-cta{bor
 .partners-phone{display:inline-block;color:var(--lime);font-weight:700;white-space:nowrap}
 .partners-phone:hover{text-decoration:underline}
 .partners-list{display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin:45px 0 0;padding:0;list-style:none}
-.partners-list li{display:grid;place-items:center;width:210px;min-height:190px;padding:20px;border:1px solid #71999d40;border-radius:20px;background:#f4f5f0}
+.partners-list li{display:grid;place-items:center;width:210px;min-height:190px;padding:20px;border:1px solid #71999d40;border-radius:20px;background:#0b262b}
 .partners-list img{display:block;width:100%;height:150px;object-fit:contain}
 .partners-list .partner-logo-small{width:84px;height:64px}
 @media(max-width:700px){.partners-list{margin-top:30px;gap:12px}.partners-list li{width:min(100%,190px);min-height:170px}.partners-list img{height:130px}}
