@@ -13,7 +13,7 @@ export default function IntroVideoEditor({initial}){
     const candidate=event.target.files?.[0];setFailed(false);setMessage('');
     if(!candidate)return;
     if(!/\.mp4$/i.test(candidate.name)||!candidate.size||candidate.size>MAX_VIDEO_BYTES){
-      event.target.value='';setFile(null);setFailed(true);setMessage('یک فایل MP4 با حجم حداکثر ۸۰ مگابایت انتخاب کنید.');return;
+      event.target.value='';setFile(null);setFailed(true);setMessage('یک فایل MP4 با حجم حداکثر ۱۰۰ مگابایت انتخاب کنید.');return;
     }
     setFile(candidate);
   }
@@ -49,7 +49,7 @@ export default function IntroVideoEditor({initial}){
   const src=preview||current.video?.src;
   return <form className={styles.editor} onSubmit={upload}>
     <div className={styles.videoPreview}>{src?<video key={src} src={src} controls playsInline preload="metadata" aria-label={file?'پیش‌نمایش کلیپ انتخاب‌شده':'کلیپ فعلی سایت'}/>:<div className={styles.videoEmpty}><span aria-hidden="true">▷</span><h2>هنوز کلیپی بارگذاری نشده</h2><p>کلیپ را انتخاب و بارگذاری کنید تا در صفحه اصلی نمایش داده شود.</p></div>}</div>
-    <div className={styles.videoFields}><label htmlFor="intro-clip">انتخاب کلیپ {current.video?'جایگزین':''}</label><input ref={input} id="intro-clip" type="file" accept="video/mp4,.mp4" disabled={pending} onChange={choose} aria-describedby="intro-clip-help"/><small id="intro-clip-help">MP4، حداکثر ۸۰ مگابایت. برای پخش بهتر در مرورگرها، ویدیو با کدک H.264 و صدای AAC انتخاب کنید.</small>
+    <div className={styles.videoFields}><label htmlFor="intro-clip">انتخاب کلیپ {current.video?'جایگزین':''}</label><input ref={input} id="intro-clip" type="file" accept="video/mp4,.mp4" disabled={pending} onChange={choose} aria-describedby="intro-clip-help"/><small id="intro-clip-help">MP4، حداکثر ۱۰۰ مگابایت. برای پخش بهتر در مرورگرها، ویدیو با کدک H.264 و صدای AAC انتخاب کنید.</small>
     {file&&<p className={styles.videoFile}><bdi>{file.name}</bdi><span>{(file.size/1024/1024).toFixed(1)} مگابایت · آمادهٔ بارگذاری</span></p>}
     {!file&&current.video&&<p className={styles.videoFile}>کلیپ فعلی · {(current.video.size/1024/1024).toFixed(1)} مگابایت</p>}
     </div>

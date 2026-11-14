@@ -188,7 +188,7 @@ video player section is hidden. The panel supports progress, cancellation and
 deletion. Deleting a clip hides the player again. No rebuild is needed after
 uploads or deletion on the Node server.
 
-Uploads are limited to 80 MiB and streamed to private files rather than buffered
+Uploads are limited to 100 MiB and streamed to private files rather than buffered
 in RAM or stored as SQLite blobs. MP4 container boxes are checked; the server
 does not transcode or validate every codec. Use MP4 with H.264 video and AAC audio
 for browser compatibility. Playback supports byte ranges for seeking.
@@ -210,7 +210,7 @@ during maintenance while uploads are stopped. The static preview omits the clip.
 The existing production Nginx limit may be 5 MiB. Add the dedicated
 `location = /api/admin/intro-video` block from
 `deploy/nginx-iranmex.conf.example` to the same server block that proxies the
-site, then validate and reload Nginx. It permits 81 MiB and allows time for uploads.
+site, then validate and reload Nginx. It permits 100 MiB and allows time for uploads.
 Retain the existing domain, HTTPS, Cloudflare real-IP and login configuration.
 Do not replace the production server block wholesale with the example.
 Any CDN or other reverse proxy must also permit the upload size and duration.

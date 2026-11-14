@@ -21,7 +21,7 @@ server {
     }
     # Stream admin clip uploads to the application; keep the normal request limit elsewhere.
     location = /api/admin/intro-video {
-        client_max_body_size 81m;
+        client_max_body_size 100m;
         proxy_request_buffering off;
         proxy_http_version 1.1;
         proxy_read_timeout 600s;

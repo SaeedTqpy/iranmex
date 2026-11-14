@@ -16,7 +16,7 @@ function failure(error){
 export async function POST(request){
   const session=await authorize(request);if(session instanceof Response)return session;
   if(request.headers.get('content-type')?.split(';')[0].toLowerCase()!=='video/mp4')return response({message:'فقط کلیپ MP4 پذیرفته می‌شود.'},415);
-  if(Number(request.headers.get('content-length'))>MAX_VIDEO_BYTES)return response({message:'حجم کلیپ باید حداکثر ۸۰ مگابایت باشد.'},413);
+  if(Number(request.headers.get('content-length'))>MAX_VIDEO_BYTES)return response({message:'حجم کلیپ باید حداکثر ۱۰۰ مگابایت باشد.'},413);
   const version=request.headers.get('x-video-version');
   if(!version||!/^\d+$/.test(version))return response({message:'نسخه کلیپ معتبر نیست.'},400);
   try{return response(await uploadIntroVideo(request.body,Number(version),session.username),201);}catch(error){return failure(error);}
