@@ -722,4 +722,8 @@ main[class*="registrationTheme"] + .footer .footer-wave{fill:transparent}
 .partners-list li{flex:0 0 210px;scroll-snap-align:start}
 @media(max-width:700px){.partners-list li{flex-basis:190px}}
 /* Preserve the desktop logo proportions on narrow screens. */
-@media(max-width:480px){.hero-organizers>.organizer-berc{flex:1.5 1 0}.hero-organizers>.organizer-alpine{flex:.95 1 0}}
+/* Equal organizer logo frames on mobile, without stretching either artwork. */
+@media(max-width:800px){
+  .hero-organizers>.organizer-logo{flex:1 1 0;max-width:210px;aspect-ratio:1;transform:none}
+  .hero-organizers>.organizer-logo img{width:100%;height:100%;object-fit:contain}
+}
