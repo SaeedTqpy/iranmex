@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import {ArrowUpLeft, CalendarDays, Clock, Eye, Leaf, MapPin, Target} from 'lucide-react';
 import styles from '../../about-event.module.css';
-import AboutPeople from '../../about-people';
 import CouncilList from '../../council-list';
 import {getCouncils} from '../../../lib/server/council-store.mjs';
 
@@ -42,8 +41,6 @@ export default function ArabicAboutEvent() {
       </section>
 
       <CouncilList items={getCouncils().items} locale="ar"/>
-
-      <AboutPeople locale="ar"/>
 
       <section className={styles.registration} aria-labelledby="about-registration-title">
         <div><h2 id="about-registration-title">انضموا إلى إيران مكس</h2><p>أدخلوا بياناتكم في استمارة التسجيل لزيارة المعرض.</p></div>

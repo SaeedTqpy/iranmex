@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import {ArrowUpLeft, CalendarDays, Clock, Eye, Leaf, MapPin, Target} from 'lucide-react';
 import styles from './about-event.module.css';
-import AboutPeople from './about-people';
 import CouncilList from './council-list';
 import {getCouncils} from '../lib/server/council-store.mjs';
 
@@ -42,8 +41,6 @@ export default function AboutEvent() {
       </section>
 
       <CouncilList items={getCouncils().items}/>
-
-      <AboutPeople locale="fa"/>
 
       <section className={styles.registration} aria-labelledby="about-registration-title">
         <div><h2 id="about-registration-title">همراه ایران مِکس باشید</h2><p>برای بازدید از نمایشگاه، اطلاعات خود را در فرم ثبت‌نام وارد کنید.</p></div>
