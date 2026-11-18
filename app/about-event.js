@@ -10,7 +10,7 @@ export default function AboutEvent() {
       <section className={styles.introduction} aria-labelledby="about-intro-title">
         <div>
           <h2 id="about-intro-title">گردهمایی ملی جامعه کوهستان</h2>
-          <p>نمایشگاه تخصصی و ملی کوهنوردی، سنگ‌نوردی و طبیعت‌گردی، تجهیزات و صنایع وابسته، گردهمایی فعالان، تولیدکنندگان، پیشکسوتان و علاقه‌مندان به ارتفاعات و طبیعت است.</p>
+          <p>نمایشگاه تخصصی و ملی کوه‌نوردی، سنگ‌نوردی و طبیعت‌گردی، تجهیزات و صنایع وابسته، گردهمایی فعالان، تولیدکنندگان، پیشکسوتان و علاقه‌مندان به ارتفاعات و طبیعت است.</p>
           <p>این رویداد با هدف ایجاد هم‌افزایی، معرفی تازه‌ترین دستاوردهای صنعتی و علمی و ارتقای سطح ایمنی و استانداردهای این حوزه برگزار می‌شود.</p>
           <dl className={styles.facts}>
             <div><dt><CalendarDays size={20} aria-hidden="true"/>تاریخ برگزاری</dt><dd>۱۸ و ۱۹ آذر ۱۴۰۵</dd></div>
@@ -23,11 +23,11 @@ export default function AboutEvent() {
 
       <section className={styles.organizers} aria-labelledby="organizers-title">
         <h2 id="organizers-title">برگزارکننده و شرکای استراتژیک</h2>
-        <p>این نمایشگاه توسط شرکت آسو پویش داتیس، صاحب برند ایران مِکس، و با مشارکت و همکاری رسمی انجمن کوهنوردان ایران و فدراسیون کوهنوردی و صعودهای ورزشی ایران برنامه‌ریزی و اجرا می‌شود؛ با هدف ارائه بالاترین استاندارد اجرایی و تخصصی به جامعه مخاطب.</p>
+        <p>این نمایشگاه توسط شرکت آسو پویش داتیس، صاحب برند ایران مِکس، و با مشارکت و همکاری رسمی انجمن کوهنوردان ایران و فدراسیون کوه‌نوردی و صعودهای ورزشی ایران برنامه‌ریزی و اجرا می‌شود؛ با هدف ارائه بالاترین استاندارد اجرایی و تخصصی به جامعه مخاطب.</p>
         <dl className={styles.organizerList}>
           <div><dt>برگزارکننده و صاحب برند</dt><dd><img className={styles.organizerLogo} src="/organizers/berc.png" alt="" width="744" height="496" loading="lazy"/>شرکت آسو پویش داتیس</dd></div>
           <div><dt>برگزارکننده و شریک استراتژیک</dt><dd><img className={styles.organizerLogo} src="/organizers/alpine-club.png" alt="" width="171" height="180" loading="lazy"/>انجمن کوهنوردان ایران</dd></div>
-          <div><dt>همکار و شریک استراتژیک</dt><dd><img className={styles.organizerLogo} src="/organizers/mountaineering-federation.png" alt="" width="1371" height="1250" loading="lazy"/>فدراسیون کوهنوردی و صعودهای ورزشی ایران</dd></div>
+          <div><dt>همکار و شریک استراتژیک</dt><dd><img className={styles.organizerLogo} src="/organizers/mountaineering-federation.png" alt="" width="1371" height="1250" loading="lazy"/>فدراسیون کوه‌نوردی و صعودهای ورزشی ایران</dd></div>
         </dl>
       </section>
 
@@ -35,7 +35,7 @@ export default function AboutEvent() {
         <h2 id="principles-title">چشم‌انداز، مأموریت و مسئولیت اجتماعی</h2>
         <div className={styles.principleGrid}>
           <article><Eye className={styles.principleIcon} aria-hidden="true"/><h3>چشم‌انداز</h3><p>تبدیل شدن به معتبرترین بستر ملی و منطقه‌ای برای تعالی صنایع و خدمات حوزه فعالیت‌های فضای باز و طبیعت‌گردی.</p></article>
-          <article><Target className={styles.principleIcon} aria-hidden="true"/><h3>مأموریت</h3><p>هم‌افزایی اکوسیستم کوهنوردی، ارتقای کیفیت و ایمنی تجهیزات داخلی و معرفی ظرفیت‌های ملی به بازارهای جهانی.</p></article>
+          <article><Target className={styles.principleIcon} aria-hidden="true"/><h3>مأموریت</h3><p>هم‌افزایی اکوسیستم کوه‌نوردی، ارتقای کیفیت و ایمنی تجهیزات داخلی و معرفی ظرفیت‌های ملی به بازارهای جهانی.</p></article>
           <article><Leaf className={styles.principleIcon} aria-hidden="true"/><h3>مسئولیت اجتماعی</h3><p>پایش و محاسبه ردپای کربن نمایشگاه و کاشت درخت برای حفاظت از زیست‌بوم ارزشمند کوهستان.</p></article>
         </div>
       </section>

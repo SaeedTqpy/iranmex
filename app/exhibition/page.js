@@ -16,7 +16,7 @@ export default function ExhibitionPage() {
     <section className={styles.hero} aria-labelledby="exhibition-title">
       <nav className={styles.breadcrumb} aria-label="مسیر صفحه"><Link href="/">خانه</Link><span aria-hidden="true">/</span><span aria-current="page">نمایشگاه</span></nav>
       <h1 id="exhibition-title">نمایشگاه <span className={styles.titleAccent}>ایران مِکس</span></h1>
-      <p>با شرکت‌ها، تولیدکنندگان و ارائه‌دهندگان حوزه کوهنوردی و فعالیت‌های فضای باز آشنا شوید. برای مشاهده معرفی، محصولات و راه‌های ارتباطی هر مجموعه، روی لوگوی آن کلیک کنید.</p>
+      <p>با شرکت‌ها، تولیدکنندگان و ارائه‌دهندگان حوزه کوه‌نوردی و فعالیت‌های فضای باز آشنا شوید. برای مشاهده معرفی، محصولات و راه‌های ارتباطی هر مجموعه، روی لوگوی آن کلیک کنید.</p>
       <dl className={styles.facts}>
         <div><dt><CalendarDays size={20} aria-hidden="true"/>تاریخ برگزاری</dt><dd>۱۸ و ۱۹ آذر ۱۴۰۵</dd></div>
         <div><dt><Clock size={20} aria-hidden="true"/>ساعت بازدید</dt><dd>۱۲:۰۰ تا ۲۲:۰۰</dd></div>
