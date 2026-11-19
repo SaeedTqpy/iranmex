@@ -13,7 +13,7 @@ try {
   for(const dir of ['app','lib','content','public']) await cp(join(root,dir),join(staging,dir),{recursive:true});
   for(const file of ['package.json','package-lock.json']) await cp(join(root,file),join(staging,file));
   await symlink(join(root,'node_modules'),join(staging,'node_modules'),'dir');
-  for(const path of ['app/api','app/admin','app/news/media','app/intro-video/[id]']) await rm(join(staging,path),{recursive:true,force:true});
+  for(const path of ['app/api','app/admin','app/news/media','app/intro-video/[id]','app/sitemap.xml']) await rm(join(staging,path),{recursive:true,force:true});
   await writeFile(join(staging,'next.config.mjs'),`export default {output:'export',trailingSlash:true,basePath:${JSON.stringify(base)},images:{unoptimized:true}};\n`);
   const modify=async (path,fn)=>{const file=join(staging,path);await writeFile(file,fn(await readFile(file,'utf8')));};
   await writeFile(join(staging,'app/intro-video-section.js'),'export default function IntroVideoSection(){return null;}\n');
