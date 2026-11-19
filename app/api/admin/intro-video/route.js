@@ -1,5 +1,5 @@
 import {checkAdminOrigin,readAdminSession,readJson,response} from '../../../../lib/server/admin-request';
-import {uploadIntroVideo,deleteIntroVideo,VideoError} from '../../../../lib/server/intro-video-store.mjs';
+import {uploadIntroVideo,deleteIntroVideo,saveIntroVideoPoster,VideoError} from '../../../../lib/server/intro-video-store.mjs';
 import {MAX_VIDEO_BYTES} from '../../../../lib/video-validation.mjs';
 export const runtime='nodejs';
 export const dynamic='force-dynamic';
@@ -26,4 +26,10 @@ export async function DELETE(request){
   const input=await readJson(request,1024);
   if(!input)return response({message:'اطلاعات معتبر نیست.'},400);
   try{return response(await deleteIntroVideo(input.updatedAt,session.username));}catch(error){return failure(error);}
+}
+
+export async function PATCH(request){
+  const session=await authorize(request);if(session instanceof Response)return session;
+  const input=await readJson(request,2048);if(!input)return response({message:'اطلاعات معتبر نیست.'},400);
+  try{return response(saveIntroVideoPoster(input.poster,input.updatedAt,session.username));}catch(error){return failure(error);}
 }

@@ -3,7 +3,7 @@
 import {useRef, useState} from 'react';
 import {Play} from 'lucide-react';
 
-export default function IntroVideo({locale='fa',src}) {
+export default function IntroVideo({locale='fa',src,poster}) {
   const videoRef = useRef(null);
   const [paused, setPaused] = useState(true);
 
@@ -16,7 +16,7 @@ export default function IntroVideo({locale='fa',src}) {
   }
 
   return <div className="intro-video-player">
-    <video ref={videoRef} controls playsInline preload="none" width="1280" height="720" aria-labelledby="event-video-title" onPlay={() => setPaused(false)} onPause={() => setPaused(true)} onEnded={() => setPaused(true)}>
+    <video ref={videoRef} poster={poster||undefined} controls playsInline preload="none" width="1280" height="720" aria-labelledby="event-video-title" onPlay={() => setPaused(false)} onPause={() => setPaused(true)} onEnded={() => setPaused(true)}>
       <source src={src} type="video/mp4"/>
       {locale==='en'?'Your browser does not support video playback. ':locale==='ar'?'متصفحك لا يدعم تشغيل الفيديو. ':'مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند. '}<a href={src}>{locale==='en'?'Download video':locale==='ar'?'تنزيل الفيديو':'دریافت ویدیو'}</a>
     </video>

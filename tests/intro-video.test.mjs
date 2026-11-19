@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import {mkdtempSync,rmSync,existsSync,readdirSync,statSync,readFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join,dirname} from 'node:path';
-import {getIntroVideo,uploadIntroVideo,deleteIntroVideo,introVideoPath} from '../lib/server/intro-video-store.mjs';
+import {getIntroVideo,uploadIntroVideo,deleteIntroVideo,introVideoPath,saveIntroVideoPoster} from '../lib/server/intro-video-store.mjs';
+import {openAdminStore} from '../lib/server/admin-store.mjs';
 import {MAX_VIDEO_BYTES,parseVideoRange} from '../lib/video-validation.mjs';
 import {GET,HEAD} from '../app/intro-video/[id]/route.js';
 
@@ -110,4 +111,17 @@ test('upload API enforces Origin, session, MIME, size and version before publica
  const stale=await api.DELETE(request({'Content-Type':'application/json'},JSON.stringify({updatedAt:0}),'DELETE'));assert.equal(stale.status,409);
  const removed=await api.DELETE(request({'Content-Type':'application/json'},JSON.stringify({updatedAt:result.updatedAt}),'DELETE'));assert.equal(removed.status,200);
  assert.equal(getIntroVideo().video,null);
+});
+
+test('poster requires existing media, persists across video replacement and rejects stale edits',async t=>{
+ setup(t);const clip1=await uploadIntroVideo(stream(clip()),0,'admin');
+ const id='a'.repeat(32),src='/news/media/'+id;
+ assert.throws(()=>saveIntroVideoPoster(src,clip1.updatedAt,'admin'));
+ assert.throws(()=>saveIntroVideoPoster('https://example.org/image',clip1.updatedAt,'admin'));
+ const store=openAdminStore();store.db.prepare('INSERT INTO admin_media(id,data,width,height,created_at) VALUES (?,?,?,?,?)').run(id,Buffer.from('image'),1,1,Date.now());store.close();
+ const withPoster=saveIntroVideoPoster(src,clip1.updatedAt,'admin');assert.equal(getIntroVideo().video.poster,src);
+ assert.throws(()=>saveIntroVideoPoster('',clip1.updatedAt,'admin'),error=>error.status===409);
+ const clip2=await uploadIntroVideo(stream(clip()),withPoster.updatedAt,'admin');assert.equal(clip2.video.poster,src);
+ const cleared=saveIntroVideoPoster('',clip2.updatedAt,'admin');assert.equal(getIntroVideo().video.poster,'');
+ await deleteIntroVideo(cleared.updatedAt,'admin');assert.throws(()=>saveIntroVideoPoster(src,getIntroVideo().updatedAt,'admin'));
 });

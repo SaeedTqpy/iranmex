@@ -20,10 +20,10 @@ export default function Home(){const heroImages=getHeroImages().images;return <>
     <span className="mountain-talk-kicker">از برنامه‌های ایران مِکس</span>
     <h2 id="mountain-talk-title" lang="en" dir="ltr">Mountain Talk</h2>
     <p>پای صحبت چهره‌های کوهستان</p>
-    <div className="mountain-talk-details"><span>پنج‌شنبه ۱۹ آذر ۱۴۰۵</span><span>تهران، هتل پارسیان انقلاب</span></div>
+    <div className="mountain-talk-details"><span>چهارشنبه و پنج‌شنبه ۱۸ و ۱۹ آذر ۱۴۰۵</span><span>تهران، هتل پارسیان انقلاب</span></div>
   </div>
   <div className="mountain-talk-posters" aria-label="پوستر سخنرانان مانتین تاک">
-    {getMountainTalks().items.map(talk=><figure key={talk.id}><img src={talk.image} width="1000" height="1252" loading="lazy" alt={talk.alt||`پوستر سخنرانی ${talk.name} در Mountain Talk`}/></figure>)}
+    {getMountainTalks().items.map(talk=><figure key={talk.id}><Link href={`/mountain-talk/${talk.id}`} aria-label={`مشاهده اطلاعات ${talk.name}`}><img src={talk.image} width="1000" height="1252" loading="lazy" alt={talk.alt||`پوستر سخنرانی ${talk.name} در Mountain Talk`}/></Link></figure>)}
   </div>
 </section>
 <section className="event-visit section" aria-labelledby="visit-details-title"><VisitDetails/><IntroVideoSection/></section>
